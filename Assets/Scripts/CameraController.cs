@@ -11,12 +11,13 @@ public class CameraController : MonoBehaviour
     [SerializeField] private Camera _camera;
     public void Start()
     {
-        _players = GameObject.FindGameObjectsWithTag("Player");
         _camera = gameObject.GetComponent<Camera>();
     }
 
     public void FixedUpdate()
     {
+        _players = GameObject.FindGameObjectsWithTag("Player");
+        
         Vector3 midpoint = Vector3.zero;
         Vector3 smallest = _players[0].transform.position;
         Vector3 greatest = _players[0].transform.position;
