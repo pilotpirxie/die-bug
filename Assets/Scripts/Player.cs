@@ -133,7 +133,7 @@ public class Player : MonoBehaviour
 
     private void BasicAttack()
     {        
-        GameObject bullet = Instantiate(_basicBullet, _shotgunWeapon.transform.position, _shotgunWeapon.transform.rotation);
+        GameObject bullet = Instantiate(_basicBullet, _basicWeapon.transform.position, _basicWeapon.transform.rotation);
         bullet.GetComponent<Bullet>().SetDamage(_basicDamage);
     }
 
@@ -152,28 +152,31 @@ public class Player : MonoBehaviour
         
         weaponRotation.eulerAngles += new Vector3(0, -20f + Random.Range(-5, 5), 0);
         GameObject bullet1 = Instantiate(_basicBullet, weaponPosition, weaponRotation);
-        bullet1.GetComponent<Bullet>().SetDamage(_basicDamage);
+        bullet1.GetComponent<Bullet>().SetDamage(_shotgunDamage);
         
         weaponRotation.eulerAngles += new Vector3(0, 10 + Random.Range(-5, 5), 0);
         GameObject bullet2 = Instantiate(_basicBullet, weaponPosition, weaponRotation);
-        bullet2.GetComponent<Bullet>().SetDamage(_basicDamage);
+        bullet2.GetComponent<Bullet>().SetDamage(_shotgunDamage);
 
         weaponRotation.eulerAngles += new Vector3(0, 10 + Random.Range(-5, 5), 0);
         GameObject bullet3 = Instantiate(_basicBullet, weaponPosition, weaponRotation);
-        bullet3.GetComponent<Bullet>().SetDamage(_basicDamage);
+        bullet3.GetComponent<Bullet>().SetDamage(_shotgunDamage);
 
         weaponRotation.eulerAngles += new Vector3(0, 10 + Random.Range(-5, 5), 0);
         GameObject bullet4 = Instantiate(_basicBullet, weaponPosition, weaponRotation);
-        bullet4.GetComponent<Bullet>().SetDamage(_basicDamage);
+        bullet4.GetComponent<Bullet>().SetDamage(_shotgunDamage);
 
         weaponRotation.eulerAngles += new Vector3(0, 10 + Random.Range(-5, 5), 0);
         GameObject bullet5 = Instantiate(_basicBullet, weaponPosition, weaponRotation);
-        bullet5.GetComponent<Bullet>().SetDamage(_basicDamage);
+        bullet5.GetComponent<Bullet>().SetDamage(_shotgunDamage);
     }
 
     private void GrenadeAttack()
     {
-        
+        GameObject grenade = Instantiate(_grenade, _grenadeWeapon.transform.position, _grenadeWeapon.transform.rotation);
+        grenade.GetComponent<Rigidbody>().AddForce(grenade.transform.forward * 7f, ForceMode.Impulse);
+        grenade.GetComponent<Rigidbody>().AddForce(grenade.transform.up * 10f, ForceMode.Impulse);
+        grenade.GetComponent<Grenade>().SetDamage(_grenadeDamage);
     }
 
     private void BaseballAttack()

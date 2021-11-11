@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7158505428854567808}
   - component: {fileID: 7158505428854567815}
   - component: {fileID: 7158505428854567811}
-  - component: {fileID: -8530647416854098329}
+  - component: {fileID: 3862531761516113659}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -122,19 +122,19 @@ MonoBehaviour:
   _attack: 32
   _maxHP: 1000
   _currentHP: 0
-  _selectedWeapon: 1
+  _selectedWeapon: 2
   _basicWeapon: {fileID: 540860242523491758}
   _shotgunWeapon: {fileID: 7624156999477805071}
   _grenadeWeapon: {fileID: 9161855869397168326}
   _baseballWeapon: {fileID: 3218416316129480894}
   _basicBullet: {fileID: 5932748838144944819, guid: e9b29e4e94721ac44bfb794a226d419b, type: 3}
   _shotgunBullet: {fileID: 5932748838144944819, guid: e9b29e4e94721ac44bfb794a226d419b, type: 3}
-  _grenade: {fileID: 5932748838144944819, guid: e9b29e4e94721ac44bfb794a226d419b, type: 3}
+  _grenade: {fileID: 7952250630540379164, guid: f37af4611ad09a340963d446a74fba9b, type: 3}
   _basicDamage: 50
   _shotgunDamage: 150
   _grenadeDamage: 1000
   _baseballDamage: 200
---- !u!54 &-8530647416854098329
+--- !u!54 &3862531761516113659
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
