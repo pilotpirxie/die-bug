@@ -2,30 +2,55 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
+
+public enum Weapon
+{
+    Basic,
+    Shotgun,
+    Grenade,
+    Baseball
+}
 
 public class Player : MonoBehaviour
 {
+    [Header("Movement")]
     [SerializeField] private float _speed = 1f;
     [SerializeField] private float _speedMultiplier = 1f;
 
+    [Header("Keyboard Configuration")]
     [SerializeField] private KeyCode _up;
     [SerializeField] private KeyCode _down;
     [SerializeField] private KeyCode _left;
     [SerializeField] private KeyCode _right;
-    [SerializeField] private KeyCode _shoot;
+    [SerializeField] private KeyCode _attack;
 
+    [Header("Player Stats")]
     [SerializeField] private int _maxHP = 1000;
     [SerializeField] private int _currentHP;
 
-    [SerializeField] private GameObject _bullet;
-    [SerializeField] private int _damage = 100;
+    [Header("Weapons")] 
+    [SerializeField] private Weapon _selectedWeapon = Weapon.Basic;
+    [SerializeField] private GameObject _basicWeapon;
+    [SerializeField] private GameObject _shotgunWeapon;
+    [SerializeField] private GameObject _grenadeWeapon;
+    [SerializeField] private GameObject _baseballWeapon;
+    [SerializeField] private GameObject _basicBullet;
+    [SerializeField] private GameObject _shotgunBullet;
+    [SerializeField] private GameObject _grenade;
+    [SerializeField] private GameObject _baseballBat;
     
-    void Start()
+    [SerializeField] private int _basicDamage = 50;
+    [SerializeField] private int _shotgunDamage = 150;
+    [SerializeField] private int _grenadeDamage = 1000;
+    [SerializeField] private int _baseballDamage = 200;
+    
+    private void Start()
     {
         _currentHP = _maxHP;
     }
 
-    void Update()
+    private void Update()
     {
         Vector3 inputs = Vector3.zero;
 
@@ -35,18 +60,29 @@ public class Player : MonoBehaviour
         if (Input.GetKey(_left)) inputs.x = -1;
 
         inputs = Vector3.ClampMagnitude(inputs, 1f);
-
         if (inputs.magnitude != 0)
         {
             transform.rotation = Quaternion.LookRotation (inputs);
-  
             transform.Translate(inputs * _speed * _speedMultiplier * Time.deltaTime, Space.World);
         }
 
-        if (Input.GetKeyDown(_shoot))
+        if (Input.GetKeyDown(_attack))
         {
-            GameObject bullet = Instantiate(_bullet, transform.position, transform.rotation);
-            bullet.GetComponent<Bullet>().SetDamage(_damage);
+            switch (_selectedWeapon)
+            {
+                case Weapon.Basic:
+                    BasicAttack();
+                    break;
+                case Weapon.Shotgun:
+                    ShotgunAttack();
+                    break;
+                case Weapon.Grenade:
+                    GrenadeAttack();
+                    break;
+                case Weapon.Baseball:
+                    BaseballAttack();
+                    break;
+            }
         }
     }
 
@@ -55,7 +91,6 @@ public class Player : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy"))
         {
             Enemy enemy = other.gameObject.GetComponent<Enemy>();
-
             _currentHP -= enemy.GetDamage();
             enemy.CollideWithPlayer();
         }
@@ -66,9 +101,57 @@ public class Player : MonoBehaviour
         if (other.gameObject.CompareTag("EnemyBullet"))
         {
             Bullet bullet = other.gameObject.GetComponent<Bullet>();
-
             _currentHP -= bullet.GetDamage();
             bullet.DestroyBullet();
         }
+    }
+
+    private void BasicAttack()
+    {
+        GameObject bullet = Instantiate(_basicBullet, transform.position, transform.rotation);
+        bullet.GetComponent<Bullet>().SetDamage(_basicDamage);
+    }
+
+    private void ShotgunAttack()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            Invoke("SingleShotgunShoot", i * 0.1f);
+        }
+    }
+
+    private void SingleShotgunShoot()
+    {
+        Quaternion playerRotation = transform.rotation;
+
+        playerRotation.eulerAngles += new Vector3(0, -20f + Random.Range(-5, 5), 0);
+        GameObject bullet1 = Instantiate(_basicBullet, transform.position, playerRotation);
+        bullet1.GetComponent<Bullet>().SetDamage(_basicDamage);
+        
+        playerRotation.eulerAngles += new Vector3(0, 10 + Random.Range(-5, 5), 0);
+        GameObject bullet2 = Instantiate(_basicBullet, transform.position, playerRotation);
+        bullet2.GetComponent<Bullet>().SetDamage(_basicDamage);
+
+        playerRotation.eulerAngles += new Vector3(0, 10 + Random.Range(-5, 5), 0);
+        GameObject bullet3 = Instantiate(_basicBullet, transform.position, playerRotation);
+        bullet3.GetComponent<Bullet>().SetDamage(_basicDamage);
+
+        playerRotation.eulerAngles += new Vector3(0, 10 + Random.Range(-5, 5), 0);
+        GameObject bullet4 = Instantiate(_basicBullet, transform.position, playerRotation);
+        bullet4.GetComponent<Bullet>().SetDamage(_basicDamage);
+
+        playerRotation.eulerAngles += new Vector3(0, 10 + Random.Range(-5, 5), 0);
+        GameObject bullet5 = Instantiate(_basicBullet, transform.position, playerRotation);
+        bullet5.GetComponent<Bullet>().SetDamage(_basicDamage);
+    }
+
+    private void GrenadeAttack()
+    {
+        
+    }
+
+    private void BaseballAttack()
+    {
+        
     }
 }

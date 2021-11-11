@@ -211,11 +211,22 @@ MonoBehaviour:
   _down: 115
   _left: 97
   _right: 100
-  _shoot: 32
+  _attack: 32
   _maxHP: 1000
   _currentHP: 0
-  _bullet: {fileID: 5932748838144944819, guid: e9b29e4e94721ac44bfb794a226d419b, type: 3}
-  _damage: 100
+  _selectedWeapon: 1
+  _basicWeapon: {fileID: 0}
+  _shotgunWeapon: {fileID: 0}
+  _grenadeWeapon: {fileID: 0}
+  _baseballWeapon: {fileID: 0}
+  _basicBullet: {fileID: 5932748838144944819, guid: e9b29e4e94721ac44bfb794a226d419b, type: 3}
+  _shotgunBullet: {fileID: 5932748838144944819, guid: e9b29e4e94721ac44bfb794a226d419b, type: 3}
+  _grenade: {fileID: 5932748838144944819, guid: e9b29e4e94721ac44bfb794a226d419b, type: 3}
+  _baseballBat: {fileID: 5932748838144944819, guid: e9b29e4e94721ac44bfb794a226d419b, type: 3}
+  _basicDamage: 50
+  _shotgunDamage: 150
+  _grenadeDamage: 1000
+  _baseballDamage: 200
 --- !u!54 &-8530647416854098329
 Rigidbody:
   m_ObjectHideFlags: 0
