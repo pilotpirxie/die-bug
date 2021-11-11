@@ -38,7 +38,6 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject _basicBullet;
     [SerializeField] private GameObject _shotgunBullet;
     [SerializeField] private GameObject _grenade;
-    [SerializeField] private GameObject _baseballBat;
     
     [SerializeField] private int _basicDamage = 50;
     [SerializeField] private int _shotgunDamage = 150;
@@ -84,8 +83,10 @@ public class Player : MonoBehaviour
                     break;
             }
         }
-    }
 
+        DisplayCorrectWeapon();
+    }
+    
     public void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.CompareTag("Enemy"))
@@ -106,9 +107,33 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void BasicAttack()
+    private void DisplayCorrectWeapon()
     {
-        GameObject bullet = Instantiate(_basicBullet, transform.position, transform.rotation);
+        _basicWeapon.SetActive(false);
+        _shotgunWeapon.SetActive(false);
+        _grenadeWeapon.SetActive(false);
+        _baseballWeapon.SetActive(false);
+        
+        switch (_selectedWeapon)
+        {                
+            case Weapon.Basic:
+                _basicWeapon.SetActive(true);
+                break;
+            case Weapon.Shotgun:
+                _shotgunWeapon.SetActive(true);
+                break;
+            case Weapon.Grenade:
+                _grenadeWeapon.SetActive(true);
+                break;
+            case Weapon.Baseball:
+                _baseballWeapon.SetActive(true);
+                break;
+        }
+    }
+
+    private void BasicAttack()
+    {        
+        GameObject bullet = Instantiate(_basicBullet, _shotgunWeapon.transform.position, _shotgunWeapon.transform.rotation);
         bullet.GetComponent<Bullet>().SetDamage(_basicDamage);
     }
 
@@ -122,26 +147,27 @@ public class Player : MonoBehaviour
 
     private void SingleShotgunShoot()
     {
-        Quaternion playerRotation = transform.rotation;
-
-        playerRotation.eulerAngles += new Vector3(0, -20f + Random.Range(-5, 5), 0);
-        GameObject bullet1 = Instantiate(_basicBullet, transform.position, playerRotation);
+        Quaternion weaponRotation = _shotgunWeapon.transform.rotation;
+        Vector3 weaponPosition = _shotgunWeapon.transform.position;
+        
+        weaponRotation.eulerAngles += new Vector3(0, -20f + Random.Range(-5, 5), 0);
+        GameObject bullet1 = Instantiate(_basicBullet, weaponPosition, weaponRotation);
         bullet1.GetComponent<Bullet>().SetDamage(_basicDamage);
         
-        playerRotation.eulerAngles += new Vector3(0, 10 + Random.Range(-5, 5), 0);
-        GameObject bullet2 = Instantiate(_basicBullet, transform.position, playerRotation);
+        weaponRotation.eulerAngles += new Vector3(0, 10 + Random.Range(-5, 5), 0);
+        GameObject bullet2 = Instantiate(_basicBullet, weaponPosition, weaponRotation);
         bullet2.GetComponent<Bullet>().SetDamage(_basicDamage);
 
-        playerRotation.eulerAngles += new Vector3(0, 10 + Random.Range(-5, 5), 0);
-        GameObject bullet3 = Instantiate(_basicBullet, transform.position, playerRotation);
+        weaponRotation.eulerAngles += new Vector3(0, 10 + Random.Range(-5, 5), 0);
+        GameObject bullet3 = Instantiate(_basicBullet, weaponPosition, weaponRotation);
         bullet3.GetComponent<Bullet>().SetDamage(_basicDamage);
 
-        playerRotation.eulerAngles += new Vector3(0, 10 + Random.Range(-5, 5), 0);
-        GameObject bullet4 = Instantiate(_basicBullet, transform.position, playerRotation);
+        weaponRotation.eulerAngles += new Vector3(0, 10 + Random.Range(-5, 5), 0);
+        GameObject bullet4 = Instantiate(_basicBullet, weaponPosition, weaponRotation);
         bullet4.GetComponent<Bullet>().SetDamage(_basicDamage);
 
-        playerRotation.eulerAngles += new Vector3(0, 10 + Random.Range(-5, 5), 0);
-        GameObject bullet5 = Instantiate(_basicBullet, transform.position, playerRotation);
+        weaponRotation.eulerAngles += new Vector3(0, 10 + Random.Range(-5, 5), 0);
+        GameObject bullet5 = Instantiate(_basicBullet, weaponPosition, weaponRotation);
         bullet5.GetComponent<Bullet>().SetDamage(_basicDamage);
     }
 
