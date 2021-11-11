@@ -25,7 +25,8 @@ public class Enemy : MonoBehaviour
     [Header("If shooting or turret type")]
     [SerializeField] private float _shootInterval = 1f;
     [SerializeField] private float _shootNoiseInterval = 0.25f;
-    [SerializeField] private float _maxDistanceFromPlayer = 1000f;
+    [SerializeField] private float _minDistanceFromPlayer = 10f;
+    [SerializeField] private float _maxDistanceFromPlayer = 100f;
     [SerializeField] private GameObject _bullet;
     
     [Header("HP")] 
@@ -77,7 +78,12 @@ public class Enemy : MonoBehaviour
 
         if (_type == EnemyType.Crawling || _type == EnemyType.Shooting)
         {
-            transform.localPosition = Vector3.MoveTowards (transform.localPosition, targetPosition, _speed * Time.deltaTime);
+            float distance = Vector3.Distance(transform.position, _playerTarget.transform.position);
+
+            if ((_type == EnemyType.Shooting && distance > _minDistanceFromPlayer) || _type == EnemyType.Crawling)
+            {
+                transform.localPosition = Vector3.MoveTowards (transform.localPosition, targetPosition, _speed * Time.deltaTime);
+            }
         }
 
         Vector3 targetDirection = targetPosition - transform.position;
@@ -85,6 +91,7 @@ public class Enemy : MonoBehaviour
         transform.rotation = Quaternion.LookRotation(newDirection);
     }
 
+    
     private void Noise()
     {
         _positionNoise = new Vector3(Random.Range(-_maxNoise, _maxNoise), 0, Random.Range(-_maxNoise, _maxNoise));

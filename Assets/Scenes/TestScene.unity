@@ -1735,10 +1735,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02f767bd5aa44c46a84f93cfeb8802f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minDistance: 10
-  _maxDistance: 20
+  _minDistance: 15
+  _maxDistance: 25
   _players: []
-  _zoomFactor: 1
+  _zoomFactor: 1.2
   _followTimeDelta: 0.1
   _camera: {fileID: 0}
 --- !u!1001 &547365548
