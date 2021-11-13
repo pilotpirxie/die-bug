@@ -39,6 +39,8 @@ public class Player : MonoBehaviour
     [SerializeField] private int _shotgunDamage = 150;
     [SerializeField] private int _grenadeDamage = 1000;
     [SerializeField] private int _baseballDamage = 200;
+    
+    [SerializeField] private Animator _playerAnimator;
 
     private void Start()
     {
@@ -173,5 +175,7 @@ public class Player : MonoBehaviour
 
     private void BaseballAttack()
     {
+        _playerAnimator.ResetTrigger("onSwing");
+        _playerAnimator.SetTrigger("onSwing");
     }
 }
