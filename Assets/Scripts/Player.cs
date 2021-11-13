@@ -34,6 +34,7 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject _baseballWeapon;
     [SerializeField] private GameObject _bullet;
     [SerializeField] private GameObject _grenade;
+    [SerializeField] private GameObject _baseballArea;
     
     [SerializeField] private int _basicDamage = 50;
     [SerializeField] private int _shotgunDamage = 150;
@@ -196,5 +197,10 @@ public class Player : MonoBehaviour
 
         _playerAnimator.ResetTrigger("onSwing");
         _playerAnimator.SetTrigger("onSwing");
+        
+        GameObject bullet = Instantiate(_baseballArea, _baseballWeapon.transform.position, _baseballWeapon.transform.rotation);
+        bullet.GetComponent<Bullet>().SetDamage(_baseballDamage);
+        bullet.GetComponent<Bullet>().SetDestroyAfter(0.2f);
+
     }
 }

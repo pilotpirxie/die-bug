@@ -67,6 +67,7 @@ MonoBehaviour:
   _baseballWeapon: {fileID: 3218416316129480894}
   _bullet: {fileID: 5932748838144944819, guid: e9b29e4e94721ac44bfb794a226d419b, type: 3}
   _grenade: {fileID: 7952250630540379164, guid: f37af4611ad09a340963d446a74fba9b, type: 3}
+  _baseballArea: {fileID: 7076965691386067850, guid: 3e77978217865a64b8441e2bebdb2306, type: 3}
   _basicDamage: 50
   _shotgunDamage: 150
   _grenadeDamage: 1000
