@@ -34,11 +34,25 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject _baseballWeapon;
     [SerializeField] private GameObject _bullet;
     [SerializeField] private GameObject _grenade;
+    [SerializeField] private GameObject _baseballArea;
     
     [SerializeField] private int _basicDamage = 50;
     [SerializeField] private int _shotgunDamage = 150;
     [SerializeField] private int _grenadeDamage = 1000;
     [SerializeField] private int _baseballDamage = 200;
+
+    [SerializeField] private AudioClip _basicSound;
+    // [SerializeField] private AudioClip _basicReloadSound;
+    [SerializeField] private AudioClip _shotgunSound;
+    // [SerializeField] private AudioClip _shotgunReloadSound;
+    [SerializeField] private AudioClip _grenadeSound;
+    // [SerializeField] private AudioClip _grenadeReloadSound;
+    [SerializeField] private AudioClip _baseballSound;
+    // [SerializeField] private AudioClip _baseballReloadSound;
+    
+    [Header("Controllers")] 
+    [SerializeField] private Animator _playerAnimator;
+    [SerializeField] private AudioSource _playerAudioSource;
 
     private void Start()
     {
@@ -127,6 +141,8 @@ public class Player : MonoBehaviour
 
     private void BasicAttack()
     {
+        _playerAudioSource.PlayOneShot(_basicSound);
+
         GameObject bullet = Instantiate(_bullet, _basicWeapon.transform.position, _basicWeapon.transform.rotation);
         bullet.GetComponent<Bullet>().SetDamage(_basicDamage);
     }
@@ -160,10 +176,14 @@ public class Player : MonoBehaviour
         weaponRotation.eulerAngles += new Vector3(0, 10 + Random.Range(-5, 5), 0);
         GameObject bullet5 = Instantiate(_bullet, weaponPosition, weaponRotation);
         bullet5.GetComponent<Bullet>().SetDamage(_shotgunDamage);
+        
+        _playerAudioSource.PlayOneShot(_shotgunSound);
     }
 
     private void GrenadeAttack()
     {
+        _playerAudioSource.PlayOneShot(_grenadeSound);
+
         GameObject grenade =
             Instantiate(_grenade, _grenadeWeapon.transform.position, _grenadeWeapon.transform.rotation);
         grenade.GetComponent<Rigidbody>().AddForce(grenade.transform.forward * 7f, ForceMode.Impulse);
@@ -173,5 +193,14 @@ public class Player : MonoBehaviour
 
     private void BaseballAttack()
     {
+        _playerAudioSource.PlayOneShot(_baseballSound);
+
+        _playerAnimator.ResetTrigger("onSwing");
+        _playerAnimator.SetTrigger("onSwing");
+        
+        GameObject bullet = Instantiate(_baseballArea, _baseballWeapon.transform.position, _baseballWeapon.transform.rotation);
+        bullet.GetComponent<Bullet>().SetDamage(_baseballDamage);
+        bullet.GetComponent<Bullet>().SetDestroyAfter(0.2f);
+
     }
 }
