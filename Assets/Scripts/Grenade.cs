@@ -6,7 +6,9 @@ public class Grenade : MonoBehaviour
     [SerializeField] private GameObject _bullet;
     [SerializeField] private int _numberOfBullets = 72;
     [SerializeField] private int _damage;
-
+    [SerializeField] private AudioSource _grenadeAudioSource;
+    [SerializeField] private AudioClip _explosionSound;
+    
     private void Start()
     {
         Invoke("Explode", _timeToExplode);
@@ -16,7 +18,8 @@ public class Grenade : MonoBehaviour
     {
         for (int i = 0; i < _numberOfBullets; i++) Invoke("Shoot", i * 0.01f);
 
-        Invoke("DestroyGrenade", (_numberOfBullets + 1) * 0.01f);
+        _grenadeAudioSource.PlayOneShot(_explosionSound);
+        Invoke("DestroyGrenade", (_numberOfBullets + 1) * 0.01f + 1f);
     }
 
     private void DestroyGrenade()
