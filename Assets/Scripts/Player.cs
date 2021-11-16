@@ -69,10 +69,12 @@ public class Player : MonoBehaviour
         if (Input.GetKey(_left)) inputs.x = -1;
 
         inputs = Vector3.ClampMagnitude(inputs, 1f);
+        _playerAnimator.SetBool("isMoving", false);
         if (inputs.magnitude != 0)
         {
             transform.rotation = Quaternion.LookRotation(inputs);
             transform.Translate(inputs * _speed * _speedMultiplier * Time.deltaTime, Space.World);
+            _playerAnimator.SetBool("isMoving", true);
         }
 
         if (Input.GetKeyDown(_attack))
