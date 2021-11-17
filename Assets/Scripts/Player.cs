@@ -35,6 +35,7 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject _bullet;
     [SerializeField] private GameObject _grenade;
     [SerializeField] private GameObject _baseballArea;
+    [SerializeField] private GameObject _shootFrom;
     
     [SerializeField] private int _basicDamage = 50;
     [SerializeField] private int _shotgunDamage = 150;
@@ -145,7 +146,7 @@ public class Player : MonoBehaviour
     {
         _playerAudioSource.PlayOneShot(_basicSound);
 
-        GameObject bullet = Instantiate(_bullet, _basicWeapon.transform.position, _basicWeapon.transform.rotation);
+        GameObject bullet = Instantiate(_bullet, _shootFrom.transform.position, _shootFrom.transform.rotation);
         bullet.GetComponent<Bullet>().SetDamage(_basicDamage);
     }
 
@@ -156,8 +157,8 @@ public class Player : MonoBehaviour
 
     private void SingleShotgunShoot()
     {
-        Quaternion weaponRotation = _shotgunWeapon.transform.rotation;
-        Vector3 weaponPosition = _shotgunWeapon.transform.position;
+        Quaternion weaponRotation = _shootFrom.transform.rotation;
+        Vector3 weaponPosition = _shootFrom.transform.position;
 
         weaponRotation.eulerAngles += new Vector3(0, -20f + Random.Range(-5, 5), 0);
         GameObject bullet1 = Instantiate(_bullet, weaponPosition, weaponRotation);
@@ -187,7 +188,7 @@ public class Player : MonoBehaviour
         _playerAudioSource.PlayOneShot(_grenadeSound);
 
         GameObject grenade =
-            Instantiate(_grenade, _grenadeWeapon.transform.position, _grenadeWeapon.transform.rotation);
+            Instantiate(_grenade, _shootFrom.transform.position, _shootFrom.transform.rotation);
         grenade.GetComponent<Rigidbody>().AddForce(grenade.transform.forward * 7f, ForceMode.Impulse);
         grenade.GetComponent<Rigidbody>().AddForce(grenade.transform.up * 10f, ForceMode.Impulse);
         grenade.GetComponent<Grenade>().SetDamage(_grenadeDamage);
@@ -200,7 +201,7 @@ public class Player : MonoBehaviour
         _playerAnimator.ResetTrigger("onSwing");
         _playerAnimator.SetTrigger("onSwing");
         
-        GameObject bullet = Instantiate(_baseballArea, _baseballWeapon.transform.position, _baseballWeapon.transform.rotation);
+        GameObject bullet = Instantiate(_baseballArea, _shootFrom.transform.position, _shootFrom.transform.rotation);
         bullet.GetComponent<Bullet>().SetDamage(_baseballDamage);
         bullet.GetComponent<Bullet>().SetDestroyAfter(0.2f);
 

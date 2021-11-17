@@ -593,8 +593,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 2, y: 2, z: 2}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &2708858059032410996
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -617,10 +617,11 @@ MonoBehaviour:
   _destroyOnCollision: 1
   _shootInterval: 0.5
   _shootNoiseInterval: 0.2
-  _maxDistanceFromPlayer: 1000
+  _minWalkDistanceFromPlayer: 10
+  _maxShootingDistanceFromPlayer: 100
   _bullet: {fileID: 204488008220680244, guid: 9ef34ac7f13b7e0498fda966fdb077d2, type: 3}
-  _maxHP: 100
-  _currentHP: 0
+  _maxHp: 100
+  _currentHp: 0
 --- !u!54 &2708858059032410997
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -664,7 +665,7 @@ Transform:
   m_GameObject: {fileID: 2708858059073723349}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 25, y: 25, z: 25}
+  m_LocalScale: {x: 50, y: 50, z: 50}
   m_Children:
   - {fileID: 2708858058006047112}
   - {fileID: 2708858059166439013}
