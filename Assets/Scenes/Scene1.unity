@@ -2337,7 +2337,7 @@ MonoBehaviour:
   Cockroaches: 14
   Ladybugs: 4
   Scorpios: 0
-  Spider: 0
+  Spiders: 0
 --- !u!114 &586862538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2356,7 +2356,7 @@ MonoBehaviour:
   Cockroaches: 8
   Ladybugs: 0
   Scorpios: 0
-  Spider: 0
+  Spiders: 0
 --- !u!114 &586862539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2375,7 +2375,7 @@ MonoBehaviour:
   Cockroaches: 2
   Ladybugs: 0
   Scorpios: 0
-  Spider: 0
+  Spiders: 0
 --- !u!114 &586862540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2394,7 +2394,7 @@ MonoBehaviour:
   Cockroaches: 0
   Ladybugs: 0
   Scorpios: 0
-  Spider: 0
+  Spiders: 0
 --- !u!114 &586862541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2410,11 +2410,11 @@ MonoBehaviour:
   _meteor: {fileID: 0}
   _currentWaveIndex: 0
   _waves: []
-  _ants: {fileID: 0}
-  _bees: {fileID: 0}
-  _cockroaches: {fileID: 0}
-  _ladybugs: {fileID: 0}
-  _scorpios: {fileID: 0}
+  _ant: {fileID: 0}
+  _bee: {fileID: 0}
+  _cockroach: {fileID: 0}
+  _ladybug: {fileID: 0}
+  _scorpio: {fileID: 0}
   _spider: {fileID: 0}
 --- !u!4 &586862542
 Transform:
@@ -3218,6 +3218,7 @@ GameObject:
   - component: {fileID: 777582043}
   - component: {fileID: 777582042}
   - component: {fileID: 777582041}
+  - component: {fileID: 777582045}
   m_Layer: 0
   m_Name: Meteor
   m_TagString: Untagged
@@ -3301,6 +3302,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &777582045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 777582040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d8940ddda936f46a587a0cb7cc0a76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemyToSpawn: {fileID: 0}
 --- !u!4 &790570550 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6656779741004371621, guid: 123a83ef473a86c46a22ecf7babfa6a1, type: 3}
