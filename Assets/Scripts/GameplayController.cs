@@ -55,7 +55,7 @@ public class GameplayController : MonoBehaviour
     {
         for (int i = 0; i < numberOfEnemies; i++)
         {
-            Vector3 spawnPos = new Vector3(Random.Range(318, 422), 270, Random.Range(255, 380));
+            Vector3 spawnPos = new Vector3(Random.Range(318, 422), Random.Range(270, 370), Random.Range(255, 380));
             GameObject newMeteor = Instantiate(_meteor, spawnPos, Quaternion.identity);
             newMeteor.GetComponent<Meteor>().SetEnemy(enemyObj);
         }  
