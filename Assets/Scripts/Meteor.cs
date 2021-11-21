@@ -16,7 +16,12 @@ public class Meteor : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Ground"))
         {
-            GameObject enemy = Instantiate(_enemyToSpawn);
+            GameObject enemy = Instantiate(_enemyToSpawn, gameObject.transform.position + new Vector3(0, 3f, 0), gameObject.transform.rotation);
+            Destroy(gameObject);
+        }
+
+        if (other.gameObject.CompareTag("DestroyZone"))
+        {
             Destroy(gameObject);
         }
     }

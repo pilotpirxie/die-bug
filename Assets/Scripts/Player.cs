@@ -106,6 +106,11 @@ public class Player : MonoBehaviour
             _currentHp -= enemy.GetDamage();
             enemy.CollideWithPlayer();
         }
+
+        if (other.gameObject.CompareTag("DestroyZone"))
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnTriggerEnter(Collider other)

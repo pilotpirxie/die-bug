@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class GameplayController : MonoBehaviour
 {
@@ -20,14 +21,15 @@ public class GameplayController : MonoBehaviour
     private void Start()
     {
         _waves = GetComponents<Wave>().ToList();
-        InvokeRepeating("CheckEnemiesOnMap", 5000, 1000);
+        InvokeRepeating("CheckEnemiesOnMap", 5, 1);
     }
 
     private void CheckEnemiesOnMap()
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        GameObject[] meteors = GameObject.FindGameObjectsWithTag("Meteor");
 
-        if (enemies.Length == 0)
+        if (enemies.Length + meteors.Length == 0)
         {
             NextWave();
         }
@@ -36,13 +38,26 @@ public class GameplayController : MonoBehaviour
     private void NextWave()
     {
         _currentWaveIndex++;
-        
-        Wave wave = _waves[_currentWaveIndex];
 
-        for (int i = 0; i < wave.Ants; i++)
+        if (_currentWaveIndex >= _waves.Count) return; 
+        
+        Wave wave = _waves[_currentWaveIndex - 1];
+        
+        SpawnEnemies(wave.Ants, _ant);
+        SpawnEnemies(wave.Bees, _bee);
+        SpawnEnemies(wave.Cockroaches, _cockroach);
+        SpawnEnemies(wave.Ladybugs, _ladybug);
+        SpawnEnemies(wave.Scorpios, _scorpio);
+        SpawnEnemies(wave.Spiders, _spider);
+    }
+
+    private void SpawnEnemies(int numberOfEnemies, GameObject enemyObj)
+    {
+        for (int i = 0; i < numberOfEnemies; i++)
         {
-            GameObject newMeteor = Instantiate(_meteor);
-            newMeteor.GetComponent<Meteor>().SetEnemy(_ant);
-        }        
+            Vector3 spawnPos = new Vector3(Random.Range(318, 422), 270, Random.Range(255, 380));
+            GameObject newMeteor = Instantiate(_meteor, spawnPos, Quaternion.identity);
+            newMeteor.GetComponent<Meteor>().SetEnemy(enemyObj);
+        }  
     }
 }
