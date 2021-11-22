@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Gray_snow 3
+  m_Shader: {fileID: -6465566751694194690, guid: 1f944d4ec2ce18f42937d4d2275b6b20, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - Vector1_91bf1e565111417b9946c6d394860ddd: 0.2
+    - Vector1_ab256bbb30104556a0640e04fc3b0c94: 0
+    - Vector1_f838408ea44c4051af982452afbade4e: 7.79
+    m_Colors:
+    - Color_2e2f79eb0f044e2c97a996942ea375bb: {r: 0.20754719, g: 0.20754719, b: 0.20754719, a: 0}
+    - Color_5a21a3c6846d4bb9af8cbcd54c4c6cc5: {r: 0.8284087, g: 0.95285004, b: 0.9811321, a: 0}
+    - Vector3_0e487d221de94909841124ed2053b5dd: {r: 0, g: 0.69, b: 0, a: 0}
+  m_BuildTextureStacks: []

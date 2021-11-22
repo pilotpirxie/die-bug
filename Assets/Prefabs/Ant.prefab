@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2708858057341459282}
   - component: {fileID: 2708858057341459280}
   - component: {fileID: 2708858057341459283}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: leg2b
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 2708858057389614058}
   - component: {fileID: 2708858057389614056}
   - component: {fileID: 2708858057389614059}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: leg0b
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 2708858058006047112}
   - component: {fileID: 2708858058006047158}
   - component: {fileID: 2708858058006047113}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: antena
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -259,7 +259,7 @@ GameObject:
   - component: {fileID: 2708858058470965419}
   - component: {fileID: 2708858058470965417}
   - component: {fileID: 2708858058470965416}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: leg1a
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -342,7 +342,7 @@ GameObject:
   - component: {fileID: 2708858058830293773}
   - component: {fileID: 2708858058830293771}
   - component: {fileID: 2708858058830293770}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: leg2a
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -425,7 +425,7 @@ GameObject:
   - component: {fileID: 2708858058987810722}
   - component: {fileID: 2708858058987810720}
   - component: {fileID: 2708858058987810723}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: leg1b
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -511,7 +511,7 @@ GameObject:
   - component: {fileID: 2708858059032410952}
   - component: {fileID: 2708858059032410996}
   - component: {fileID: 2708858059032410997}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ant
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -649,7 +649,7 @@ GameObject:
   - component: {fileID: 2708858059073723346}
   - component: {fileID: 2708858059073723344}
   - component: {fileID: 2708858059073723347}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -740,7 +740,7 @@ GameObject:
   - component: {fileID: 2708858059166439013}
   - component: {fileID: 2708858059166439011}
   - component: {fileID: 2708858059166439010}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: leg0a
   m_TagString: Untagged
   m_Icon: {fileID: 0}
