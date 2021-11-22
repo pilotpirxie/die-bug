@@ -69,6 +69,11 @@ public class Enemy : MonoBehaviour
         Vector3 newDirection =
             Vector3.RotateTowards(transform.forward, targetDirection, _rotateSpeed * Time.deltaTime, 0.0f);
         transform.rotation = Quaternion.LookRotation(newDirection);
+        
+        if (transform.position.y < -150)
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void OnTriggerEnter(Collider other)
@@ -109,7 +114,7 @@ public class Enemy : MonoBehaviour
 
     public void CollideWithPlayer()
     {
-        if (_destroyOnCollision) Destroy(gameObject);
+        if (_destroyOnCollision) EnemyDie();
     }
 
     private void Shoot()
