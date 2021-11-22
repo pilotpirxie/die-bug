@@ -24,6 +24,11 @@ Material:
     - _mult: 1
     - _pwer: 1
     m_Colors:
+<<<<<<< Updated upstream
     - _Bottom: {r: 0.8773585, g: 0.5835262, b: 0.75022167, a: 0}
     - _Top: {r: 1, g: 0.6142744, b: 0.19339621, a: 0}
+=======
+    - _Bottom: {r: 0.7924528, g: 0.35510856, b: 0.7277441, a: 0}
+    - _Top: {r: 0.990566, g: 0.6825509, b: 0.4625756, a: 0}
+>>>>>>> Stashed changes
   m_BuildTextureStacks: []
