@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6978942798892425955}
   - component: {fileID: 6867257364346719}
   - component: {fileID: 3487615871607699945}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: leg1a
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 2796073339973243825}
   - component: {fileID: 2931270191905036485}
   - component: {fileID: 5310528607654674458}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: tail2.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -174,7 +174,7 @@ GameObject:
   - component: {fileID: 7486251140968447009}
   - component: {fileID: 3805738663923658194}
   - component: {fileID: 2986270387240842552}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: bdpart2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -255,7 +255,7 @@ GameObject:
   - component: {fileID: 651031056220965719}
   - component: {fileID: 4974970089882571747}
   - component: {fileID: 4474205932237949420}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ele2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -336,7 +336,7 @@ GameObject:
   - component: {fileID: 146767628020553005}
   - component: {fileID: 6363023748004303656}
   - component: {fileID: 3402753649730646000}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: tail2.005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -416,7 +416,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6037985722382113653}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: claws
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -450,7 +450,7 @@ GameObject:
   - component: {fileID: 5898765078490011025}
   - component: {fileID: 3016524017797849186}
   - component: {fileID: 5398049812906115854}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: leg2b
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -531,7 +531,7 @@ GameObject:
   - component: {fileID: 4909766855248697273}
   - component: {fileID: 3355397061071755806}
   - component: {fileID: 4928517649420856181}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: leg3a
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -612,7 +612,7 @@ GameObject:
   - component: {fileID: 9128025490436885321}
   - component: {fileID: 6335919092767637961}
   - component: {fileID: 2493024317568296847}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: tail2.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -694,7 +694,7 @@ GameObject:
   - component: {fileID: 7798100047206095383}
   - component: {fileID: 2918764082777758220}
   - component: {fileID: 3115491882415240484}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: tail2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -776,7 +776,7 @@ GameObject:
   - component: {fileID: 38661299890225096}
   - component: {fileID: 3345985348955362982}
   - component: {fileID: 4077737003266523222}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: sbottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -857,7 +857,7 @@ GameObject:
   - component: {fileID: 3035947664381573541}
   - component: {fileID: 8236044588447928617}
   - component: {fileID: 8409068755870953273}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: sfront
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -938,7 +938,7 @@ GameObject:
   - component: {fileID: 4606045308896787577}
   - component: {fileID: 8987627719629955399}
   - component: {fileID: 2755544071437460775}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: claw1b
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1019,7 +1019,7 @@ GameObject:
   - component: {fileID: 2380058545643770789}
   - component: {fileID: 7771879805077294710}
   - component: {fileID: 6726871429793119602}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: tail1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1101,7 +1101,7 @@ GameObject:
   - component: {fileID: 5284283488748190136}
   - component: {fileID: 4514529832791089427}
   - component: {fileID: 184729231982452482}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: bdpart1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1181,7 +1181,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9171659301311215563}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: leg2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1215,7 +1215,7 @@ GameObject:
   - component: {fileID: 873377280148228056}
   - component: {fileID: 6152078511067675032}
   - component: {fileID: 1537260215146855763}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: claw0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1298,7 +1298,7 @@ GameObject:
   - component: {fileID: 1521185889426628685}
   - component: {fileID: 7506725500566398729}
   - component: {fileID: 9209894976827705324}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: tiptop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1377,7 +1377,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7186724845212946425}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: leg3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1411,7 +1411,7 @@ GameObject:
   - component: {fileID: 1850002547368773705}
   - component: {fileID: 3064267002401516508}
   - component: {fileID: 4401473626512164794}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: tail2.004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1493,7 +1493,7 @@ GameObject:
   - component: {fileID: 2596339028068932641}
   - component: {fileID: 1072154720768103616}
   - component: {fileID: 1918217617175575208}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: claw1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1576,7 +1576,7 @@ GameObject:
   - component: {fileID: 7923498638733063553}
   - component: {fileID: 1219969200796291668}
   - component: {fileID: 5919889026285773767}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: leg3b
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1657,7 +1657,7 @@ GameObject:
   - component: {fileID: 8511317638385953145}
   - component: {fileID: 2937442186216526249}
   - component: {fileID: 8932339153178156675}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: tail2.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1739,7 +1739,7 @@ GameObject:
   - component: {fileID: 7869243579190038265}
   - component: {fileID: 1190291770344044883}
   - component: {fileID: 712754295345392992}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: leg2a
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1820,7 +1820,7 @@ GameObject:
   - component: {fileID: 5476402372932955666}
   - component: {fileID: 1721257961790891902}
   - component: {fileID: 2582184533556378864}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: tail2.007
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1902,7 +1902,7 @@ GameObject:
   - component: {fileID: 2145953583869981096}
   - component: {fileID: 1499302498339148682}
   - component: {fileID: 3843328653140210454}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: tail2.006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1982,7 +1982,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2477535458017480509}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: tail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2015,7 +2015,7 @@ GameObject:
   - component: {fileID: 6759957333271503525}
   - component: {fileID: 7396587214398832722}
   - component: {fileID: 7236424359530197928}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: tail0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2097,7 +2097,7 @@ GameObject:
   - component: {fileID: 3297049538676981116}
   - component: {fileID: 5241260703334569256}
   - component: {fileID: 2192743808899577494}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ele1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2178,7 +2178,7 @@ GameObject:
   - component: {fileID: 5438919742843592903}
   - component: {fileID: 7534144720181007819}
   - component: {fileID: 983105309156998044}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: leg1b
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2257,7 +2257,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4954609721698231458}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: leg1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2289,7 +2289,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3454185598993536639}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: leg0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2323,7 +2323,7 @@ GameObject:
   - component: {fileID: 2805283062534326532}
   - component: {fileID: 8477774726214684638}
   - component: {fileID: 9063311087549391713}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: leg0b
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2404,7 +2404,7 @@ GameObject:
   - component: {fileID: 9185033472430968515}
   - component: {fileID: 9002103066513046999}
   - component: {fileID: 55254907520184363}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: leg0a
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2485,7 +2485,7 @@ GameObject:
   - component: {fileID: 573415036573674129}
   - component: {fileID: 6454922731418382528}
   - component: {fileID: 6001041379755288320}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: claw0a
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2569,7 +2569,7 @@ GameObject:
   - component: {fileID: 8119799155619499600}
   - component: {fileID: 8119799155619499615}
   - component: {fileID: 8119799155619499614}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: scorpio
   m_TagString: Enemy
   m_Icon: {fileID: 0}

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 9073105956142428958}
   - component: {fileID: 92316186549511333}
   - component: {fileID: 1203798950107695780}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: spleg1b
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 5504915310361332647}
   - component: {fileID: 9033134331569523164}
   - component: {fileID: 1347151453413506747}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: spleg3b
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -173,7 +173,7 @@ GameObject:
   - component: {fileID: 160056962121968207}
   - component: {fileID: 2420390908598414530}
   - component: {fileID: 5790504822111015765}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: spleg2a
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -254,7 +254,7 @@ GameObject:
   - component: {fileID: 6882416066957429908}
   - component: {fileID: 8819618378089901537}
   - component: {fileID: 873017179121943936}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: spleg2b
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -335,7 +335,7 @@ GameObject:
   - component: {fileID: 6675656291042868803}
   - component: {fileID: 4403416192788698549}
   - component: {fileID: 3143039829560742334}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: spleg1a
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -416,7 +416,7 @@ GameObject:
   - component: {fileID: 6950331162933438409}
   - component: {fileID: 8397572974205542289}
   - component: {fileID: 2796167180410222831}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: sclaw1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -495,7 +495,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1815110659569682224}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: sclaw
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -529,7 +529,7 @@ GameObject:
   - component: {fileID: 8172573415959598094}
   - component: {fileID: 1679378308645213180}
   - component: {fileID: 1443936788178975927}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: sclaw0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -610,7 +610,7 @@ GameObject:
   - component: {fileID: 2755411410882434632}
   - component: {fileID: 6626289788275203548}
   - component: {fileID: 5517076737933467698}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: spleg0a
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -691,7 +691,7 @@ GameObject:
   - component: {fileID: 7099568283844571982}
   - component: {fileID: 7881806902262778368}
   - component: {fileID: 1699243362507033890}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: spleg0b
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -770,7 +770,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7439590738275140631}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: backleg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -811,7 +811,7 @@ GameObject:
   - component: {fileID: 6969677469310089520}
   - component: {fileID: 6969677469310089527}
   - component: {fileID: 1104368432765634456}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: spider
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -954,7 +954,7 @@ GameObject:
   - component: {fileID: 868007567520893387}
   - component: {fileID: 2096519035794317859}
   - component: {fileID: 6154245766814931570}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: spleg3a
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5494983579303421205}
   - component: {fileID: 5494983579303421225}
   - component: {fileID: 5494983579303421224}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wasp
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -207,6 +207,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 52db7d1226ef1654baf79b20924a10cd, type: 3}
       propertyPath: m_Name
       value: bee (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 52db7d1226ef1654baf79b20924a10cd, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52db7d1226ef1654baf79b20924a10cd, type: 3}

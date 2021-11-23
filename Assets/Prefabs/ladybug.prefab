@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3510116227752939386}
   - component: {fileID: 3048213250841613149}
   - component: {fileID: 6950307300471867996}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Left_Leg_02.195
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,7 +91,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1254011578698640275}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: legscont
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,7 +129,7 @@ GameObject:
   - component: {fileID: 5103900669839013182}
   - component: {fileID: 61793120919334163}
   - component: {fileID: 8683259295391575163}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: leg1a
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -211,7 +211,7 @@ GameObject:
   - component: {fileID: 2347418888911365225}
   - component: {fileID: 3016900083724266374}
   - component: {fileID: 393548345336051544}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: leg2a
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -293,7 +293,7 @@ GameObject:
   - component: {fileID: 347294530980957044}
   - component: {fileID: 1160215370117794142}
   - component: {fileID: 4721221602351806203}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: shellb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -376,7 +376,7 @@ GameObject:
   - component: {fileID: 4418696186924828258}
   - component: {fileID: 8939370240418181357}
   - component: {fileID: 1921213961067100976}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Left_Leg_04.036
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -457,7 +457,7 @@ GameObject:
   - component: {fileID: 5769433094561645691}
   - component: {fileID: 4339718564150672906}
   - component: {fileID: 8310252628037156247}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Left_Leg_02.199
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -539,7 +539,7 @@ GameObject:
   - component: {fileID: 3627446263349480918}
   - component: {fileID: 4049623919605939064}
   - component: {fileID: 1228370242665955177}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Left_Leg_02.194
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -621,7 +621,7 @@ GameObject:
   - component: {fileID: 3262173489365773080}
   - component: {fileID: 4440846141873771104}
   - component: {fileID: 4229629638345014719}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ladyhead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -704,7 +704,7 @@ GameObject:
   - component: {fileID: 2407125145081771810}
   - component: {fileID: 2533727882644175680}
   - component: {fileID: 6372806702605481352}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Left_Leg_03.034
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -786,7 +786,7 @@ GameObject:
   - component: {fileID: 6071407137979505211}
   - component: {fileID: 1392133277852069219}
   - component: {fileID: 8540320113910308219}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Left_Leg_02.197
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -868,7 +868,7 @@ GameObject:
   - component: {fileID: 6642826064997799460}
   - component: {fileID: 9136136873228891321}
   - component: {fileID: 4000440637490816264}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: leg2b
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -950,7 +950,7 @@ GameObject:
   - component: {fileID: 1236092813459097877}
   - component: {fileID: 7364265212033599025}
   - component: {fileID: 3702036841883909751}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: shella
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1033,7 +1033,7 @@ GameObject:
   - component: {fileID: 2022679992517804023}
   - component: {fileID: 1612231809985598164}
   - component: {fileID: 4533576579474734236}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: leg0b
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1118,7 +1118,7 @@ GameObject:
   - component: {fileID: 166902674432041746}
   - component: {fileID: 4994585082091207162}
   - component: {fileID: 8646685396245320272}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ladybug
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -1262,7 +1262,7 @@ GameObject:
   - component: {fileID: 2791356680999222632}
   - component: {fileID: 4740854249104969747}
   - component: {fileID: 3947334816248831058}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: wingleft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1343,7 +1343,7 @@ GameObject:
   - component: {fileID: 7330135790763406052}
   - component: {fileID: 6219581597354630617}
   - component: {fileID: 5539611779014272835}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Left_Leg_02.196
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1425,7 +1425,7 @@ GameObject:
   - component: {fileID: 7660442473595344114}
   - component: {fileID: 577647161428634203}
   - component: {fileID: 991800523865192489}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Left_Leg_03.033
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1507,7 +1507,7 @@ GameObject:
   - component: {fileID: 6566754564852861227}
   - component: {fileID: 8695830848030880186}
   - component: {fileID: 3971653745595398255}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Left_Leg_04.033
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1588,7 +1588,7 @@ GameObject:
   - component: {fileID: 1354455468591644306}
   - component: {fileID: 7579358181885252547}
   - component: {fileID: 3264943874791697537}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: leg0a
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1670,7 +1670,7 @@ GameObject:
   - component: {fileID: 7146491291431686150}
   - component: {fileID: 4909034787472421457}
   - component: {fileID: 8807390860649172124}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: wingright
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1751,7 +1751,7 @@ GameObject:
   - component: {fileID: 7262592746306840160}
   - component: {fileID: 5460140692703675904}
   - component: {fileID: 8929966160747515829}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Left_Leg_03.035
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1833,7 +1833,7 @@ GameObject:
   - component: {fileID: 7349360816362102309}
   - component: {fileID: 4142478290664166601}
   - component: {fileID: 5251395646854940912}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Left_Leg_04.035
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1914,7 +1914,7 @@ GameObject:
   - component: {fileID: 1511516710254888079}
   - component: {fileID: 3117766329901989090}
   - component: {fileID: 953968676142440892}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Left_Leg_03.037
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1996,7 +1996,7 @@ GameObject:
   - component: {fileID: 5457382159572692628}
   - component: {fileID: 1201400267202750478}
   - component: {fileID: 129547754427958865}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Left_Leg_04.034
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2077,7 +2077,7 @@ GameObject:
   - component: {fileID: 2400554691984090387}
   - component: {fileID: 2869737205464835339}
   - component: {fileID: 4749731447036535650}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Left_Leg_04.032
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2158,7 +2158,7 @@ GameObject:
   - component: {fileID: 2596767991090701753}
   - component: {fileID: 2145196896739461363}
   - component: {fileID: 7848311508742291637}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Left_Leg_03.032
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2240,7 +2240,7 @@ GameObject:
   - component: {fileID: 7899013917864662067}
   - component: {fileID: 6560902675904977958}
   - component: {fileID: 2890487003684589242}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: leg1b
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2322,7 +2322,7 @@ GameObject:
   - component: {fileID: 5418408051795352114}
   - component: {fileID: 7226745209716464159}
   - component: {fileID: 7686211754190384300}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Left_Leg_04.037
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2403,7 +2403,7 @@ GameObject:
   - component: {fileID: 5990004856784557510}
   - component: {fileID: 5692193309053918704}
   - component: {fileID: 6491625917477627078}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Left_Leg_03.036
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2485,7 +2485,7 @@ GameObject:
   - component: {fileID: 8850235693345033101}
   - component: {fileID: 3344105195806558677}
   - component: {fileID: 4734512050483351808}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Left_Leg_02.198
   m_TagString: Untagged
   m_Icon: {fileID: 0}

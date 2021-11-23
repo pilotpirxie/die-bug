@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 992363741696700648}
   - component: {fileID: 8673390962362614015}
   - component: {fileID: 4262823644048180780}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: leg1b
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 3366341630442742779}
   - component: {fileID: 3603669307976321777}
   - component: {fileID: 4639677239185871979}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: leg0b
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -176,7 +176,7 @@ GameObject:
   - component: {fileID: 2346351272729376865}
   - component: {fileID: 2346351272729376866}
   - component: {fileID: 2346351272729376864}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: cockroach
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -322,7 +322,7 @@ GameObject:
   - component: {fileID: 6274009260791368730}
   - component: {fileID: 6854643338590018362}
   - component: {fileID: 1519437986087033121}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: chead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -404,7 +404,7 @@ GameObject:
   - component: {fileID: 3105941383973661937}
   - component: {fileID: 3058788863690902161}
   - component: {fileID: 4821812541268294658}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: cwing1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -485,7 +485,7 @@ GameObject:
   - component: {fileID: 4533052067270379719}
   - component: {fileID: 5180226930943288093}
   - component: {fileID: 2289191837311822877}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: leg2a
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -566,7 +566,7 @@ GameObject:
   - component: {fileID: 7922783311195890632}
   - component: {fileID: 468244410128629778}
   - component: {fileID: 8325674507711845183}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: leg0a
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -647,7 +647,7 @@ GameObject:
   - component: {fileID: 4496269193878677748}
   - component: {fileID: 7853236534154313112}
   - component: {fileID: 4068002743659948260}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Mesh_Cockroach.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -728,7 +728,7 @@ GameObject:
   - component: {fileID: 6382268140293555415}
   - component: {fileID: 9148130855937272128}
   - component: {fileID: 8201483794133998791}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: cwing0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -809,7 +809,7 @@ GameObject:
   - component: {fileID: 394020956374731828}
   - component: {fileID: 8550195619891010599}
   - component: {fileID: 2391648671678821220}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: leg1a
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -890,7 +890,7 @@ GameObject:
   - component: {fileID: 1977370410694672067}
   - component: {fileID: 228571120326783913}
   - component: {fileID: 7763498666924697925}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: leg2b
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -665,7 +665,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -876546973899608171, guid: 4464dfeeac9c4724db0d24998700b9c3, type: 3}
+  - {fileID: 2100000, guid: f324140942b58804f83c605a10bcd951, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1252,7 +1252,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -876546973899608171, guid: 4464dfeeac9c4724db0d24998700b9c3, type: 3}
+  - {fileID: 2100000, guid: f324140942b58804f83c605a10bcd951, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1427,6 +1427,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7369180927219921752}
   - component: {fileID: 7858578691297028577}
+  - component: {fileID: 2805924003144986357}
   m_Layer: 0
   m_Name: Sleigh_pack
   m_TagString: Untagged
@@ -1471,6 +1472,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2805924003144986357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7858578691297028578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4fd94a1718f11a48acff494856a72e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 0.2
 --- !u!1 &7989239714706842113
 GameObject:
   m_ObjectHideFlags: 0
@@ -1613,7 +1627,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -876546973899608171, guid: 4464dfeeac9c4724db0d24998700b9c3, type: 3}
+  - {fileID: 2100000, guid: f324140942b58804f83c605a10bcd951, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
