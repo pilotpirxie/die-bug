@@ -85,7 +85,7 @@ public class Player : MonoBehaviour
                     BasicAttack();
                     break;
                 case Weapon.Shotgun:
-                    ShotgunAttack();
+                    SingleShotgunShoot();
                     break;
                 case Weapon.Grenade:
                     GrenadeAttack();
