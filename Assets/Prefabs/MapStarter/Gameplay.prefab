@@ -1,0 +1,148 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3424255558058330825
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3424255558058330831}
+  - component: {fileID: 3424255558058330828}
+  - component: {fileID: 3424255558058330829}
+  - component: {fileID: 3424255558058330826}
+  - component: {fileID: 3424255558058330827}
+  - component: {fileID: 3424255558058330824}
+  - component: {fileID: 3424255558058330830}
+  m_Layer: 0
+  m_Name: Gameplay
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3424255558058330831
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3424255558058330825}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 356.23685, y: 233.94919, z: 367.83273}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3424255558058330828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3424255558058330825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c06ef4c543f8dae48856a2488c22fef6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _meteor: {fileID: 3912175136949603818, guid: b4c9aaf01b4f64f4ba517a1537e46504, type: 3}
+  _currentWaveIndex: 0
+  _waves: []
+  _ant: {fileID: 2708858059032410955, guid: 6725039277c62ab4d830fa8954db4c01, type: 3}
+  _bee: {fileID: 5494983579303421206, guid: 483d692cc5db6b44793b8bb3f7c52f58, type: 3}
+  _cockroach: {fileID: 3192634169380017359, guid: 110d18d60120e4f448c01baa1bc9e1aa, type: 3}
+  _ladybug: {fileID: 4943583951730708569, guid: c47a0ea955577394eaa98d89be560558, type: 3}
+  _scorpio: {fileID: 8966169459445904141, guid: f2600cd959dfec048810b441176393fd, type: 3}
+  _spider: {fileID: 7816047090236671076, guid: 4630bc0fbab67a046b483e540a9cc90c, type: 3}
+--- !u!114 &3424255558058330829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3424255558058330825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37b37dcfdff561e48a6a0da6e325c075, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isDone: 0
+  Ants: 7
+  Bees: 4
+  Cockroaches: 0
+  Ladybugs: 0
+  Scorpios: 0
+  Spiders: 0
+--- !u!114 &3424255558058330826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3424255558058330825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37b37dcfdff561e48a6a0da6e325c075, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isDone: 0
+  Ants: 14
+  Bees: 6
+  Cockroaches: 2
+  Ladybugs: 0
+  Scorpios: 0
+  Spiders: 0
+--- !u!114 &3424255558058330827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3424255558058330825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37b37dcfdff561e48a6a0da6e325c075, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isDone: 0
+  Ants: 16
+  Bees: 18
+  Cockroaches: 8
+  Ladybugs: 0
+  Scorpios: 0
+  Spiders: 0
+--- !u!114 &3424255558058330824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3424255558058330825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37b37dcfdff561e48a6a0da6e325c075, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isDone: 0
+  Ants: 0
+  Bees: 24
+  Cockroaches: 14
+  Ladybugs: 4
+  Scorpios: 0
+  Spiders: 0
+--- !u!114 &3424255558058330830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3424255558058330825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76e6e45657f8da542a47d901fdd67d11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _santaClaus: {fileID: 2043028344214118206, guid: b1b21c677d7a9ac4380c18ed83af3a36, type: 3}
