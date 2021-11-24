@@ -43,16 +43,13 @@ public class Player : MonoBehaviour
     [SerializeField] private int _baseballDamage = 200;
 
     [SerializeField] private AudioClip _basicSound;
-    // [SerializeField] private AudioClip _basicReloadSound;
     [SerializeField] private AudioClip _shotgunSound;
-    // [SerializeField] private AudioClip _shotgunReloadSound;
     [SerializeField] private AudioClip _grenadeSound;
-    // [SerializeField] private AudioClip _grenadeReloadSound;
     [SerializeField] private AudioClip _baseballSound;
-    // [SerializeField] private AudioClip _baseballReloadSound;
     [SerializeField] private AudioClip[] _footstepsSounds;
-    
+
     [Header("Controllers")] 
+    [SerializeField] private CameraController _cameraController;
     [SerializeField] private Animator _playerAnimator;
     [SerializeField] private AudioSource _playerAudioSource;
     [SerializeField] private AudioSource _footstepsAudioSource;
@@ -60,6 +57,7 @@ public class Player : MonoBehaviour
     private void Start()
     {
         _currentHp = _maxHp;
+        _cameraController = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>();
     }
 
     private void Update()
@@ -104,6 +102,7 @@ public class Player : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
+            _cameraController.Shake(-1f, 1f);
             Enemy enemy = other.gameObject.GetComponent<Enemy>();
             _currentHp -= enemy.GetDamage();
             enemy.CollideWithPlayer();
@@ -155,11 +154,6 @@ public class Player : MonoBehaviour
 
         GameObject bullet = Instantiate(_bullet, _shootFrom.transform.position, _shootFrom.transform.rotation);
         bullet.GetComponent<Bullet>().SetDamage(_basicDamage);
-    }
-
-    private void ShotgunAttack()
-    {
-        for (int i = 0; i < 3; i++) Invoke("SingleShotgunShoot", i * 0.1f);
     }
 
     private void SingleShotgunShoot()

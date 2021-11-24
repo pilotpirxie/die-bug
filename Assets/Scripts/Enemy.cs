@@ -31,9 +31,13 @@ public class Enemy : MonoBehaviour
     [Header("HP")] 
     [SerializeField] private int _maxHp = 100;
     [SerializeField] private int _currentHp;
+    [SerializeField] private GameObject _deathParticle;
+    [SerializeField] private CameraController _cameraController;
 
     private void Start()
     {
+        _cameraController = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>();
+
         if (_type == EnemyType.Crawling) InvokeRepeating("Noise", 1f, 1f / 2);
 
         if (_type == EnemyType.Shooting || _type == EnemyType.Turret)
@@ -81,6 +85,7 @@ public class Enemy : MonoBehaviour
         if (other.gameObject.CompareTag("PlayerBullet"))
         {
             Bullet bullet = other.gameObject.GetComponent<Bullet>();
+            _cameraController.Shake(-1f, 1f);
 
             _currentHp -= bullet.GetDamage();
             bullet.DestroyBullet();
@@ -128,6 +133,7 @@ public class Enemy : MonoBehaviour
 
     private void EnemyDie()
     {
+        Instantiate(_deathParticle, transform.position, transform.rotation);
         Destroy(gameObject);
     }
 }

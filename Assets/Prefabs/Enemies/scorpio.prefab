@@ -2706,3 +2706,4 @@ MonoBehaviour:
   _bullet: {fileID: 0}
   _maxHp: 100
   _currentHp: 0
+  _deathParticle: {fileID: 7948607977418637764, guid: 53fe64cf2f0b99c4cbec4bad2dfddbd1, type: 3}
