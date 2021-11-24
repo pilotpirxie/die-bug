@@ -50,10 +50,12 @@ public class Player : MonoBehaviour
     // [SerializeField] private AudioClip _grenadeReloadSound;
     [SerializeField] private AudioClip _baseballSound;
     // [SerializeField] private AudioClip _baseballReloadSound;
+    [SerializeField] private AudioClip[] _footstepsSounds;
     
     [Header("Controllers")] 
     [SerializeField] private Animator _playerAnimator;
     [SerializeField] private AudioSource _playerAudioSource;
+    [SerializeField] private AudioSource _footstepsAudioSource;
 
     private void Start()
     {
@@ -210,5 +212,11 @@ public class Player : MonoBehaviour
         bullet.GetComponent<Bullet>().SetDamage(_baseballDamage);
         bullet.GetComponent<Bullet>().SetDestroyAfter(0.2f);
 
+    }
+
+    // used in the walk animation as event
+    public void FootstepsAudio()
+    {
+        _footstepsAudioSource.PlayOneShot(_footstepsSounds[Random.Range(0, 3)]);
     }
 }
