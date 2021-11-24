@@ -118,6 +118,7 @@ public class Player : MonoBehaviour
     {
         if (other.gameObject.CompareTag("EnemyBullet"))
         {
+            _cameraController.Shake(-1f, 1f);
             Bullet bullet = other.gameObject.GetComponent<Bullet>();
             _currentHp -= bullet.GetDamage();
             bullet.DestroyBullet();
