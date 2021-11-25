@@ -251,6 +251,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyToSpawn: {fileID: 0}
   _hitParticles: {fileID: 2071810133351690389, guid: 9debc007cdd74504b8ccd45b9257248c, type: 3}
+  _cameraController: {fileID: 0}
 --- !u!54 &3372643575662663191
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -318,6 +319,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4938012834639268384, guid: 1ebbd51a45a77bf40a7ea9011775f442, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 060338e48d27e9c488adbd31d9ca7e24, type: 2}
     - target: {fileID: 5744255920922790703, guid: 1ebbd51a45a77bf40a7ea9011775f442, type: 3}
       propertyPath: m_Name
       value: Rock (7)
