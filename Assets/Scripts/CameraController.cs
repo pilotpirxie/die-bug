@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class CameraController : MonoBehaviour
 {
@@ -38,5 +39,20 @@ public class CameraController : MonoBehaviour
         if (_camera.orthographic) _camera.orthographicSize = distance;
         transform.position = Vector3.Slerp(transform.position, cameraDestination, _followTimeDelta);
         if ((cameraDestination - transform.position).magnitude <= 0.05f) transform.position = cameraDestination;
+    }
+
+    public void Shake(float min, float max)
+    {
+        Vector3 shakeRotation = transform.rotation.eulerAngles;
+        shakeRotation.z = Random.Range(min, max);
+        transform.eulerAngles = shakeRotation;
+        Invoke("ResetCameraZ", 0.1f);
+    }
+
+    private void ResetCameraZ()
+    {
+        Vector3 current = transform.rotation.eulerAngles;
+        current.z = 0;
+        transform.eulerAngles = current;
     }
 }

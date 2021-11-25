@@ -914,6 +914,7 @@ MonoBehaviour:
   _bullet: {fileID: 0}
   _maxHp: 100
   _currentHp: 0
+  _deathParticle: {fileID: 7948607977418637764, guid: 53fe64cf2f0b99c4cbec4bad2dfddbd1, type: 3}
 --- !u!54 &6969677469310089527
 Rigidbody:
   m_ObjectHideFlags: 0

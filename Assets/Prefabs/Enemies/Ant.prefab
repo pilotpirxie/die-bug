@@ -622,6 +622,7 @@ MonoBehaviour:
   _bullet: {fileID: 204488008220680244, guid: 9ef34ac7f13b7e0498fda966fdb077d2, type: 3}
   _maxHp: 100
   _currentHp: 0
+  _deathParticle: {fileID: 7948607977418637764, guid: 53fe64cf2f0b99c4cbec4bad2dfddbd1, type: 3}
 --- !u!54 &2708858059032410997
 Rigidbody:
   m_ObjectHideFlags: 0
