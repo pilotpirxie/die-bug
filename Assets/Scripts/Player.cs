@@ -152,6 +152,7 @@ public class Player : MonoBehaviour
     private void BasicAttack()
     {
         _playerAudioSource.PlayOneShot(_basicSound);
+        _playerAnimator.SetTrigger("Shoot");
 
         GameObject bullet = Instantiate(_bullet, _shootFrom.transform.position, _shootFrom.transform.rotation);
         bullet.GetComponent<Bullet>().SetDamage(_basicDamage);
@@ -161,6 +162,7 @@ public class Player : MonoBehaviour
     {
         Quaternion weaponRotation = _shootFrom.transform.rotation;
         Vector3 weaponPosition = _shootFrom.transform.position;
+        _playerAnimator.SetTrigger("Shoot");
 
         weaponRotation.eulerAngles += new Vector3(0, -20f + Random.Range(-5, 5), 0);
         GameObject bullet1 = Instantiate(_bullet, weaponPosition, weaponRotation);
@@ -188,6 +190,7 @@ public class Player : MonoBehaviour
     private void GrenadeAttack()
     {
         _playerAudioSource.PlayOneShot(_grenadeSound);
+        _playerAnimator.SetTrigger("Shoot");
 
         GameObject grenade =
             Instantiate(_grenade, _shootFrom.transform.position, _shootFrom.transform.rotation);
