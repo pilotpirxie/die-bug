@@ -169,17 +169,17 @@ MonoBehaviour:
   m_Name: Custom Renderer
   m_EditorClassIdentifier: 
   m_RendererFeatures:
-  - {fileID: -8082683142282196497}
-  - {fileID: 5389839022706990317}
-  - {fileID: 4554621047840608205}
-  - {fileID: -386489319158131584}
-  - {fileID: -2000907619321808839}
-  - {fileID: -2356495843310090094}
   - {fileID: 4831040639836684383}
   - {fileID: 9215358783568067618}
   - {fileID: 4407416310233000321}
   - {fileID: 6106547457181900513}
-  m_RendererFeatureMap: ef493b88818ad48fed1cfdd8088ecc4acd8f0e2bb643353f80d4180e03eaa2fa3978f3191f593be49248d108840b4cdf5f00f1b0dd4d0b4322bc5914fd87e37f8169b35cc8492a3de15e64f58ed0be54
+  - {fileID: -2000907619321808839}
+  - {fileID: -2356495843310090094}
+  - {fileID: -8082683142282196497}
+  - {fileID: 5389839022706990317}
+  - {fileID: 4554621047840608205}
+  - {fileID: -386489319158131584}
+  m_RendererFeatureMap: 5f00f1b0dd4d0b4322bc5914fd87e37f8169b35cc8492a3de15e64f58ed0be543978f3191f593be49248d108840b4cdfef493b88818ad48fed1cfdd8088ecc4acd8f0e2bb643353f80d4180e03eaa2fa
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}
   shaders:
@@ -413,11 +413,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b3d386ba5cd94485973aee1479b272e, type: 3}
-  m_Name: NewRenderObjects
+  m_Name: WeaponsFront
   m_EditorClassIdentifier: 
   m_Active: 1
   settings:
-    passTag: NewRenderObjects
+    passTag: WeaponsFront
     Event: 300
     filterSettings:
       RenderQueueType: 0
