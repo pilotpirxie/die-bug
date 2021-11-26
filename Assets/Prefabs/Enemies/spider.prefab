@@ -907,6 +907,8 @@ MonoBehaviour:
   _type: 0
   _damage: 15
   _destroyOnCollision: 1
+  _isSpawner: 0
+  _enemySpawn: {fileID: 0}
   _shootInterval: 1
   _shootNoiseInterval: 0.25
   _minWalkDistanceFromPlayer: 10
@@ -943,8 +945,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.35156748, y: 0.4777464, z: 0.8148413}
-  m_Center: {x: -0.000008571148, y: 0.10248199, z: 0.015108871}
+  m_Size: {x: 0.35156748, y: 0.5183714, z: 0.8148413}
+  m_Center: {x: -0.000008571148, y: 0.12279449, z: 0.015108871}
 --- !u!1 &8638153256109123086
 GameObject:
   m_ObjectHideFlags: 0

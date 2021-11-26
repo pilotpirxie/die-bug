@@ -593,8 +593,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 2, z: 2}
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Size: {x: 2, y: 3.2784019, z: 2}
+  m_Center: {x: 0, y: 1.6392009, z: 0}
 --- !u!114 &2708858059032410996
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -615,6 +615,8 @@ MonoBehaviour:
   _type: 0
   _damage: 50
   _destroyOnCollision: 1
+  _isSpawner: 0
+  _enemySpawn: {fileID: 0}
   _shootInterval: 0.5
   _shootNoiseInterval: 0.2
   _minWalkDistanceFromPlayer: 10
@@ -623,6 +625,7 @@ MonoBehaviour:
   _maxHp: 100
   _currentHp: 0
   _deathParticle: {fileID: 7948607977418637764, guid: 53fe64cf2f0b99c4cbec4bad2dfddbd1, type: 3}
+  _cameraController: {fileID: 0}
 --- !u!54 &2708858059032410997
 Rigidbody:
   m_ObjectHideFlags: 0
