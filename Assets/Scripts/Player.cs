@@ -53,6 +53,16 @@ public class Player : MonoBehaviour
     [SerializeField] private Animator _playerAnimator;
     [SerializeField] private AudioSource _playerAudioSource;
     [SerializeField] private AudioSource _footstepsAudioSource;
+    
+    [Header("Controllers")] 
+    [SerializeField] private Renderer _renderer;
+    [SerializeField] private Material _defaultMaterial;
+    [SerializeField] private Material _damagedMaterial;
+    [SerializeField] private Material _healingMaterial;
+    [SerializeField] private float _duration;
+
+    private bool damaged = false;
+    private bool healed = false;
 
     private void Start()
     {
@@ -62,6 +72,9 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+        PlayerDamaged();
+        PlayerHealed();
+        
         Vector3 inputs = Vector3.zero;
 
         if (Input.GetKey(_up)) inputs.z = 1;
@@ -98,6 +111,37 @@ public class Player : MonoBehaviour
         DisplayCorrectWeapon();
     }
 
+    private void PlayerDamaged()
+    {
+        if (damaged)
+        {
+            float lerp = Mathf.PingPong(Time.time, _duration) / _duration;
+            _renderer.material.Lerp(_defaultMaterial, _damagedMaterial, lerp);
+            if (lerp > .9f)
+            {
+                lerp = 0;
+                _renderer.material.Lerp(_defaultMaterial, _damagedMaterial, lerp);
+
+                damaged = false;
+            }
+        }
+    }
+    private void PlayerHealed()
+    {
+        if (healed)
+        {
+            float lerp = Mathf.PingPong(Time.time, _duration) / _duration;
+            _renderer.material.Lerp(_defaultMaterial, _healingMaterial, lerp);
+            if (lerp > .9f)
+            {
+                lerp = 0;
+                _renderer.material.Lerp(_defaultMaterial, _healingMaterial, lerp);
+
+                healed = false;
+            }
+        }
+    }
+
     public void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.CompareTag("Enemy"))
@@ -106,6 +150,8 @@ public class Player : MonoBehaviour
             Enemy enemy = other.gameObject.GetComponent<Enemy>();
             _currentHp -= enemy.GetDamage();
             enemy.CollideWithPlayer();
+
+            damaged = true;
         }
 
         if (other.gameObject.CompareTag("Present"))
@@ -126,12 +172,16 @@ public class Player : MonoBehaviour
             Bullet bullet = other.gameObject.GetComponent<Bullet>();
             _currentHp -= bullet.GetDamage();
             bullet.DestroyBullet();
+            
+            damaged = true;
         }
 
         if (other.gameObject.CompareTag("Healing"))
         {
             _currentHp = _maxHp;
             Destroy(other.gameObject);
+            
+            healed = true;
         }
     }
 
