@@ -14,6 +14,11 @@ GameObject:
   - component: {fileID: 3424255558058330826}
   - component: {fileID: 3424255558058330827}
   - component: {fileID: 3424255558058330824}
+  - component: {fileID: 1950733154959509109}
+  - component: {fileID: 95360331683660604}
+  - component: {fileID: 1256765480180840272}
+  - component: {fileID: 6351946311279645569}
+  - component: {fileID: 7401693014583047269}
   - component: {fileID: 3424255558058330830}
   m_Layer: 0
   m_Name: Gameplay
@@ -133,6 +138,101 @@ MonoBehaviour:
   Ladybugs: 4
   Scorpios: 0
   Spiders: 0
+--- !u!114 &1950733154959509109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3424255558058330825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37b37dcfdff561e48a6a0da6e325c075, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isDone: 0
+  Ants: 0
+  Bees: 12
+  Cockroaches: 7
+  Ladybugs: 12
+  Scorpios: 0
+  Spiders: 0
+--- !u!114 &95360331683660604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3424255558058330825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37b37dcfdff561e48a6a0da6e325c075, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isDone: 0
+  Ants: 0
+  Bees: 12
+  Cockroaches: 18
+  Ladybugs: 24
+  Scorpios: 0
+  Spiders: 0
+--- !u!114 &1256765480180840272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3424255558058330825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37b37dcfdff561e48a6a0da6e325c075, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isDone: 0
+  Ants: 8
+  Bees: 18
+  Cockroaches: 24
+  Ladybugs: 32
+  Scorpios: 0
+  Spiders: 6
+--- !u!114 &6351946311279645569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3424255558058330825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37b37dcfdff561e48a6a0da6e325c075, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isDone: 0
+  Ants: 12
+  Bees: 12
+  Cockroaches: 12
+  Ladybugs: 12
+  Scorpios: 0
+  Spiders: 12
+--- !u!114 &7401693014583047269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3424255558058330825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37b37dcfdff561e48a6a0da6e325c075, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isDone: 0
+  Ants: 24
+  Bees: 24
+  Cockroaches: 24
+  Ladybugs: 24
+  Scorpios: 1
+  Spiders: 24
 --- !u!114 &3424255558058330830
 MonoBehaviour:
   m_ObjectHideFlags: 0

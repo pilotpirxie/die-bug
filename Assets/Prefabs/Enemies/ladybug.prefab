@@ -1237,21 +1237,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerTarget: {fileID: 0}
-  _speed: 1
+  _speed: 7
   _rotateSpeed: 1
   _positionNoise: {x: 0, y: 0, z: 0}
   _maxNoise: 2
   _type: 0
   _damage: 50
   _destroyOnCollision: 1
+  _isSpawner: 0
+  _enemySpawn: {fileID: 0}
   _shootInterval: 1
   _shootNoiseInterval: 0.25
   _minWalkDistanceFromPlayer: 10
   _maxShootingDistanceFromPlayer: 100
   _bullet: {fileID: 0}
-  _maxHp: 100
+  _maxHp: 120
   _currentHp: 0
   _deathParticle: {fileID: 7948607977418637764, guid: 53fe64cf2f0b99c4cbec4bad2dfddbd1, type: 3}
+  _cameraController: {fileID: 0}
 --- !u!1 &5168874736042718159
 GameObject:
   m_ObjectHideFlags: 0

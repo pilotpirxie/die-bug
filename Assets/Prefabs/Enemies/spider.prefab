@@ -900,21 +900,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerTarget: {fileID: 0}
-  _speed: 1
+  _speed: 5
   _rotateSpeed: 1
   _positionNoise: {x: 0, y: 0, z: 0}
   _maxNoise: 2
   _type: 0
-  _damage: 50
+  _damage: 15
   _destroyOnCollision: 1
   _shootInterval: 1
   _shootNoiseInterval: 0.25
   _minWalkDistanceFromPlayer: 10
   _maxShootingDistanceFromPlayer: 100
-  _bullet: {fileID: 0}
-  _maxHp: 100
+  _bullet: {fileID: 204488008220680244, guid: 9ef34ac7f13b7e0498fda966fdb077d2, type: 3}
+  _maxHp: 300
   _currentHp: 0
   _deathParticle: {fileID: 7948607977418637764, guid: 53fe64cf2f0b99c4cbec4bad2dfddbd1, type: 3}
+  _cameraController: {fileID: 0}
 --- !u!54 &6969677469310089527
 Rigidbody:
   m_ObjectHideFlags: 0

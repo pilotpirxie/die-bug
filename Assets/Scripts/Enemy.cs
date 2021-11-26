@@ -20,7 +20,9 @@ public class Enemy : MonoBehaviour
     [SerializeField] private EnemyType _type;
     [SerializeField] private int _damage = 50;
     [SerializeField] private bool _destroyOnCollision = true;
-
+    [SerializeField] private bool _isSpawner;
+    [SerializeField] private GameObject _enemySpawn;
+    
     [Header("If shooting or turret type")] 
     [SerializeField] private float _shootInterval = 1f;
     [SerializeField] private float _shootNoiseInterval = 0.25f;
@@ -46,6 +48,13 @@ public class Enemy : MonoBehaviour
         RandomOnStart();
 
         _currentHp = _maxHp;
+        
+        if (_isSpawner) InvokeRepeating("SpawnEnemy", 1f, 5f);
+    }
+
+    private void SpawnEnemy()
+    {
+        Instantiate(_enemySpawn, transform.position, transform.rotation);
     }
 
     private void FixedUpdate()

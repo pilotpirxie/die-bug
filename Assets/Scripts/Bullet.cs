@@ -29,7 +29,11 @@ public class Bullet : MonoBehaviour
 
     public void DestroyBullet()
     {
-        _trailObject.transform.SetParent(null);
+        if (_trailObject != null)
+        {
+            _trailObject.transform.SetParent(null);
+        }
+
         Destroy(gameObject);
     }
 
