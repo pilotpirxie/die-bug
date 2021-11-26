@@ -406,6 +406,11 @@ MonoBehaviour:
   _playerAnimator: {fileID: 4962456130633363163}
   _playerAudioSource: {fileID: 1834605480498032148}
   _footstepsAudioSource: {fileID: 8146457670905329142}
+  _renderer: {fileID: 5565566617624204200}
+  _defaultMaterial: {fileID: 2100000, guid: 852d6947f6fe0ae449132c5fcc65d180, type: 2}
+  _damagedMaterial: {fileID: 2100000, guid: 356a87f374b677d4cb854c31c310990e, type: 2}
+  _healingMaterial: {fileID: 2100000, guid: 33bec7b167213714abe3cc6418bf2d5f, type: 2}
+  _duration: 0.2
 --- !u!54 &1834605480498032149
 Rigidbody:
   m_ObjectHideFlags: 0
