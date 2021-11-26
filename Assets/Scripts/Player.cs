@@ -108,9 +108,13 @@ public class Player : MonoBehaviour
             enemy.CollideWithPlayer();
         }
 
-        if (other.gameObject.CompareTag("DestroyZone"))
+        if (other.gameObject.CompareTag("Present"))
         {
-            Destroy(gameObject);
+            Present present = other.gameObject.GetComponent<Present>();
+
+            _selectedWeapon = present.PresentWeapon;
+            
+            Destroy(other.gameObject);
         }
     }
 

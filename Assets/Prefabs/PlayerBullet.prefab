@@ -267,3 +267,4 @@ MonoBehaviour:
   _speed: 30
   _damage: 0
   _destroyAfter: 1
+  _trailObject: {fileID: 3433537821144075325}

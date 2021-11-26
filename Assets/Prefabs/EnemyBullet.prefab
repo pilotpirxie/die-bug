@@ -129,6 +129,7 @@ MonoBehaviour:
   _speed: 15
   _damage: 0
   _destroyAfter: 1
+  _trailObject: {fileID: 8802260457190965834}
 --- !u!1 &8802260457190965834
 GameObject:
   m_ObjectHideFlags: 0

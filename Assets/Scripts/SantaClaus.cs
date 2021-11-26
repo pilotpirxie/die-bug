@@ -7,10 +7,12 @@ using Random = UnityEngine.Random;
 public class SantaClaus : MonoBehaviour
 {
     [SerializeField] private float _speed = 0.2f;
-    
+    [SerializeField] private List<GameObject> _presents;
+
     void Start()
     {
         Invoke("SpawnPresents", Random.Range(5, 15));
+        
         Invoke("DestroySantaClaus", 25f);
     }
 
@@ -21,7 +23,8 @@ public class SantaClaus : MonoBehaviour
 
     void SpawnPresents()
     {
-        Debug.Log("Present!");
+        Instantiate(_presents[Random.Range(0, _presents.Count)], transform.position, transform.rotation);
+        Instantiate(_presents[Random.Range(0, _presents.Count)], transform.position, transform.rotation);
     }
     
     void DestroySantaClaus()

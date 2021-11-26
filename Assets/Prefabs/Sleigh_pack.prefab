@@ -20494,6 +20494,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 0.2
+  _presents:
+  - {fileID: 3057060968390909358, guid: 5399f774a12f2f84d9832a520d2a3b25, type: 3}
+  - {fileID: 3542078503877437001, guid: 7cf865c0f36920a41b1839515f93e5e5, type: 3}
+  - {fileID: 6662082441191584427, guid: 11ac75f0ef23381449e9a4c27a45ab4e, type: 3}
+  - {fileID: 8330300419165288769, guid: fa79751991ceee5418f71e68accbb51e, type: 3}
 --- !u!1 &7989239714706842113
 GameObject:
   m_ObjectHideFlags: 0

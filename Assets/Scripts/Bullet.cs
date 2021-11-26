@@ -5,7 +5,8 @@ public class Bullet : MonoBehaviour
     [SerializeField] private float _speed;
     [SerializeField] private int _damage;
     [SerializeField] private float _destroyAfter = 1f;
-
+    [SerializeField] private GameObject _trailObject;
+    
     public void Start()
     {
         Invoke("DestroyBullet", _destroyAfter);
@@ -28,6 +29,7 @@ public class Bullet : MonoBehaviour
 
     public void DestroyBullet()
     {
+        _trailObject.transform.SetParent(null);
         Destroy(gameObject);
     }
 
