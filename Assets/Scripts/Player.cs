@@ -127,6 +127,12 @@ public class Player : MonoBehaviour
             _currentHp -= bullet.GetDamage();
             bullet.DestroyBullet();
         }
+
+        if (other.gameObject.CompareTag("Healing"))
+        {
+            _currentHp = _maxHp;
+            Destroy(other.gameObject);
+        }
     }
 
     private void DisplayCorrectWeapon()

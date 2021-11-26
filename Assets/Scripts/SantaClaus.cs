@@ -8,6 +8,7 @@ public class SantaClaus : MonoBehaviour
 {
     [SerializeField] private float _speed = 0.2f;
     [SerializeField] private List<GameObject> _presents;
+    [SerializeField] private GameObject _healObject;
 
     void Start()
     {
@@ -25,6 +26,7 @@ public class SantaClaus : MonoBehaviour
     {
         Instantiate(_presents[Random.Range(0, _presents.Count)], transform.position, transform.rotation);
         Instantiate(_presents[Random.Range(0, _presents.Count)], transform.position, transform.rotation);
+        Instantiate(_healObject, transform.position, transform.rotation);
     }
     
     void DestroySantaClaus()

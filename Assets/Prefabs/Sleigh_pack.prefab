@@ -20499,6 +20499,7 @@ MonoBehaviour:
   - {fileID: 3542078503877437001, guid: 7cf865c0f36920a41b1839515f93e5e5, type: 3}
   - {fileID: 6662082441191584427, guid: 11ac75f0ef23381449e9a4c27a45ab4e, type: 3}
   - {fileID: 8330300419165288769, guid: fa79751991ceee5418f71e68accbb51e, type: 3}
+  _healObject: {fileID: 7970254680770983375, guid: 17de569d456ba014db6aaf232de535bd, type: 3}
 --- !u!1 &7989239714706842113
 GameObject:
   m_ObjectHideFlags: 0
