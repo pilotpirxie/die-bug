@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: cd96bb4c29168ff4f8f0bec810ed44fc
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Merry Christmas 2021
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 46eb45b5a0f3eb74fbd5b194130fa72c, type: 3}
+  - {fileID: 12800000, guid: 55647bbefecdefe46a22e979b62510a4, type: 3}
+  - {fileID: 12800000, guid: b0f855cc8178fc04293e1f18bef8922e, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
