@@ -75,8 +75,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isDone: 0
-  Ants: 7
-  Bees: 4
+  Ants: 12
+  Bees: 8
   Cockroaches: 0
   Ladybugs: 0
   Scorpios: 0
