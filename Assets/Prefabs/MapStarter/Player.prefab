@@ -382,21 +382,21 @@ MonoBehaviour:
   _currentHp: 0
   _selectedWeapon: 0
   _basicWeapon: {fileID: 7704005563472623791}
+  _basicIcon: {fileID: 0}
   _shotgunWeapon: {fileID: 7704005565181925036}
+  _shotgunIcon: {fileID: 0}
   _grenadeWeapon: {fileID: 7704005563914897631}
-  _baseballWeapon: {fileID: 7704005563601059948}
+  _grenadeIcon: {fileID: 0}
   _bullet: {fileID: 5932748838144944819, guid: e9b29e4e94721ac44bfb794a226d419b, type: 3}
   _grenade: {fileID: 7952250630540379164, guid: f37af4611ad09a340963d446a74fba9b, type: 3}
   _baseballArea: {fileID: 7076965691386067850, guid: 3e77978217865a64b8441e2bebdb2306, type: 3}
   _shootFrom: {fileID: 7362059310073820319}
   _basicDamage: 100
-  _shotgunDamage: 150
-  _grenadeDamage: 100
-  _baseballDamage: 200
+  _shotgunDamage: 75
+  _grenadeDamage: 50
   _basicSound: {fileID: 8300000, guid: 5b02b122aaa29cc4d90ee77156f408bc, type: 3}
   _shotgunSound: {fileID: 8300000, guid: f52fefa2031f1754399b60abaf44ee4f, type: 3}
   _grenadeSound: {fileID: 8300000, guid: 2e7bc576e36df9b46b3e95a3736fd4e8, type: 3}
-  _baseballSound: {fileID: 8300000, guid: 37684cbf934b3fe47b8dccbf15ba5564, type: 3}
   _footstepsSounds:
   - {fileID: 8300000, guid: 23d220fd6ec26d04d88691a075cf81aa, type: 3}
   - {fileID: 8300000, guid: 7b79a8800bf513844adab97aeed0e782, type: 3}
@@ -406,6 +406,7 @@ MonoBehaviour:
   _playerAnimator: {fileID: 4962456130633363163}
   _playerAudioSource: {fileID: 1834605480498032148}
   _footstepsAudioSource: {fileID: 8146457670905329142}
+  _hpSlider: {fileID: 0}
   _renderer: {fileID: 5565566617624204200}
   _defaultMaterial: {fileID: 2100000, guid: 852d6947f6fe0ae449132c5fcc65d180, type: 2}
   _damagedMaterial: {fileID: 2100000, guid: 356a87f374b677d4cb854c31c310990e, type: 2}
