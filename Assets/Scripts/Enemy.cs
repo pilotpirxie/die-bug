@@ -35,7 +35,15 @@ public class Enemy : MonoBehaviour
     [SerializeField] private int _currentHp;
     [SerializeField] private GameObject _deathParticle;
     [SerializeField] private CameraController _cameraController;
+    [SerializeField] private AudioClip _deathSound;
 
+    [Header("Controllers")]
+    [SerializeField] private BoxCollider _boxCollider;
+    [SerializeField] private Rigidbody _rigidbody;
+    [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private Animator _animatorController;
+    
+    private bool _isDead = false;
     private void Start()
     {
         _cameraController = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>();
@@ -59,12 +67,12 @@ public class Enemy : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (_currentHp < 0)
-        {
-            EnemyDie();
-            return;
-        }
+        
 
+        if (_isDead)
+            gameObject.transform.up = new Vector3(0,-1f * Time.deltaTime, 0) ;
+        
+        
         SelectPlayerTarget();
         if (_playerTarget == null) return;
         Vector3 targetPosition = _playerTarget.transform.position + _positionNoise;
@@ -97,6 +105,11 @@ public class Enemy : MonoBehaviour
             _cameraController.Shake(-1f, 1f);
 
             _currentHp -= bullet.GetDamage();
+            if (_currentHp < 0)
+            {
+                EnemyDie();
+                return;
+            }
             bullet.DestroyBullet();
         }
     }
@@ -136,17 +149,32 @@ public class Enemy : MonoBehaviour
 
     private void Shoot()
     {
-        if (_playerTarget == null) return;
-        float distance = Vector3.Distance(transform.position, _playerTarget.transform.position);
-        if (!(distance < _maxShootingDistanceFromPlayer)) return;
+        if (!_isDead)
+        {
+            if (_playerTarget == null) return;
+            float distance = Vector3.Distance(transform.position, _playerTarget.transform.position);
+            if (!(distance < _maxShootingDistanceFromPlayer)) return;
 
-        GameObject bullet = Instantiate(_bullet, transform.position, transform.rotation);
-        bullet.GetComponent<Bullet>().SetDamage(_damage);
+            GameObject bullet = Instantiate(_bullet, transform.position, transform.rotation);
+            bullet.GetComponent<Bullet>().SetDamage(_damage);
+        }
     }
+
 
     private void EnemyDie()
     {
+        Destroy(gameObject, 3f);
+        
         Instantiate(_deathParticle, transform.position, transform.rotation);
-        Destroy(gameObject);
+        
+        _audioSource.pitch = Random.Range(.8f, 1.2f);
+        _audioSource.PlayOneShot(_deathSound);
+        
+        _isDead = true;
+        _speed = 0;
+        _animatorController.SetBool("isDead", true);
+
+        _boxCollider.enabled = false;
+        _rigidbody.isKinematic = true;
     }
 }

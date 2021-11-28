@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7185378339642767208}
   - component: {fileID: 4923385257088091042}
   - component: {fileID: 976375739661324167}
+  - component: {fileID: 5498267332729948691}
   m_Layer: 10
   m_Name: Sugarcane
   m_TagString: Untagged
@@ -90,7 +91,7 @@ Animation:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6869006198332334711}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Animation: {fileID: 7400000, guid: 405e463ae2085964f93e67c2b51ca1a1, type: 2}
   m_Animations:
@@ -99,6 +100,19 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!65 &5498267332729948691
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6869006198332334711}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.93189335, y: 6.715543, z: 2.4162931}
+  m_Center: {x: -0.011442378, y: -1.7940674, z: 0.055151522}
 --- !u!1 &7970254680770983375
 GameObject:
   m_ObjectHideFlags: 0
@@ -144,8 +158,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.5748291, y: 2.6161957, z: 1}
+  m_Center: {x: 0.21258545, y: -0.70923615, z: 0}
 --- !u!54 &7701555442552895025
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -161,7 +175,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 10
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!65 &3385601804969846215
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -171,7 +185,7 @@ BoxCollider:
   m_GameObject: {fileID: 7970254680770983375}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
-  m_Size: {x: 0.2, y: 0.2, z: 0.2}
-  m_Center: {x: 0, y: -2.31, z: 0}
+  m_Size: {x: 0.13278198, y: 3.3547058, z: 0.487854}
+  m_Center: {x: -0.19075012, y: -1.0700989, z: 0.38232422}

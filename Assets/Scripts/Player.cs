@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum Weapon
 {
@@ -29,9 +30,12 @@ public class Player : MonoBehaviour
     [SerializeField] private Weapon _selectedWeapon = Weapon.Basic;
     
     [SerializeField] private GameObject _basicWeapon;
+    [SerializeField] private GameObject _basicIcon;
     [SerializeField] private GameObject _shotgunWeapon;
+    [SerializeField] private GameObject _shotgunIcon;
     [SerializeField] private GameObject _grenadeWeapon;
-    [SerializeField] private GameObject _baseballWeapon;
+    [SerializeField] private GameObject _grenadeIcon;
+    //[SerializeField] private GameObject _baseballWeapon;
     [SerializeField] private GameObject _bullet;
     [SerializeField] private GameObject _grenade;
     [SerializeField] private GameObject _baseballArea;
@@ -40,12 +44,12 @@ public class Player : MonoBehaviour
     [SerializeField] private int _basicDamage = 50;
     [SerializeField] private int _shotgunDamage = 150;
     [SerializeField] private int _grenadeDamage = 1000;
-    [SerializeField] private int _baseballDamage = 200;
+    //[SerializeField] private int _baseballDamage = 200;
 
     [SerializeField] private AudioClip _basicSound;
     [SerializeField] private AudioClip _shotgunSound;
     [SerializeField] private AudioClip _grenadeSound;
-    [SerializeField] private AudioClip _baseballSound;
+    //[SerializeField] private AudioClip _baseballSound;
     [SerializeField] private AudioClip[] _footstepsSounds;
 
     [Header("Controllers")] 
@@ -53,8 +57,9 @@ public class Player : MonoBehaviour
     [SerializeField] private Animator _playerAnimator;
     [SerializeField] private AudioSource _playerAudioSource;
     [SerializeField] private AudioSource _footstepsAudioSource;
+    [SerializeField] private Slider _hpSlider;
     
-    [Header("Controllers")] 
+    [Header("Materials")] 
     [SerializeField] private Renderer _renderer;
     [SerializeField] private Material _defaultMaterial;
     [SerializeField] private Material _damagedMaterial;
@@ -63,10 +68,14 @@ public class Player : MonoBehaviour
 
     private bool damaged = false;
     private bool healed = false;
+    private string _currentWeapon;
+    private ParticleSystem _muzzleFlash;
 
     private void Start()
     {
         _currentHp = _maxHp;
+        SetHealth(_currentHp);
+        
         _cameraController = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>();
     }
 
@@ -103,9 +112,9 @@ public class Player : MonoBehaviour
                 case Weapon.Grenade:
                     GrenadeAttack();
                     break;
-                case Weapon.Baseball:
-                    BaseballAttack();
-                    break;
+                // case Weapon.Baseball:
+                //     BaseballAttack();
+                //     break;
             }
 
         DisplayCorrectWeapon();
@@ -138,6 +147,7 @@ public class Player : MonoBehaviour
                 _renderer.material.Lerp(_defaultMaterial, _healingMaterial, lerp);
 
                 healed = false;
+                healed = false;
             }
         }
     }
@@ -149,6 +159,7 @@ public class Player : MonoBehaviour
             _cameraController.Shake(-1f, 1f);
             Enemy enemy = other.gameObject.GetComponent<Enemy>();
             _currentHp -= enemy.GetDamage();
+            SetHealth(_currentHp);
             enemy.CollideWithPlayer();
 
             damaged = true;
@@ -171,6 +182,7 @@ public class Player : MonoBehaviour
             _cameraController.Shake(-1f, 1f);
             Bullet bullet = other.gameObject.GetComponent<Bullet>();
             _currentHp -= bullet.GetDamage();
+            SetHealth(_currentHp);
             bullet.DestroyBullet();
             
             damaged = true;
@@ -180,32 +192,53 @@ public class Player : MonoBehaviour
         {
             _currentHp = _maxHp;
             Destroy(other.gameObject);
+            SetHealth(_currentHp);
             
             healed = true;
         }
     }
 
+    public void SetHealth(int health)
+    {
+        _hpSlider.value = health;
+    }
     private void DisplayCorrectWeapon()
     {
-        _basicWeapon.SetActive(false);
-        _shotgunWeapon.SetActive(false);
-        _grenadeWeapon.SetActive(false);
-        _baseballWeapon.SetActive(false);
-
-        switch (_selectedWeapon)
+        if (_selectedWeapon.ToString() != _currentWeapon)
         {
-            case Weapon.Basic:
-                _basicWeapon.SetActive(true);
-                break;
-            case Weapon.Shotgun:
-                _shotgunWeapon.SetActive(true);
-                break;
-            case Weapon.Grenade:
-                _grenadeWeapon.SetActive(true);
-                break;
-            case Weapon.Baseball:
-                _baseballWeapon.SetActive(true);
-                break;
+            _basicWeapon.SetActive(false);
+            _shotgunWeapon.SetActive(false);
+            _grenadeWeapon.SetActive(false);
+            //_baseballWeapon.SetActive(false);
+            
+            
+            _basicIcon.SetActive(false);
+            _shotgunIcon.SetActive(false);
+            _grenadeIcon.SetActive(false);
+
+            _currentWeapon = _selectedWeapon.ToString();
+
+            switch (_selectedWeapon)
+            {
+                case Weapon.Basic:
+                    _basicWeapon.SetActive(true);
+                    _muzzleFlash = _basicWeapon.GetComponentsInChildren<ParticleSystem>()[0];
+                    _basicIcon.SetActive(true);
+                    break;
+                case Weapon.Shotgun:
+                    _shotgunWeapon.SetActive(true);
+                    _muzzleFlash = _shotgunWeapon.GetComponentsInChildren<ParticleSystem>()[0];
+                    _shotgunIcon.SetActive(true);
+                    break;
+                case Weapon.Grenade:
+                    _grenadeWeapon.SetActive(true);
+                    _muzzleFlash = _grenadeWeapon.GetComponentsInChildren<ParticleSystem>()[0];
+                    _grenadeIcon.SetActive(true);
+                    break;
+                // case Weapon.Baseball:
+                //     //_baseballWeapon.SetActive(true);
+                //     break;
+            }
         }
     }
 
@@ -213,6 +246,7 @@ public class Player : MonoBehaviour
     {
         _playerAudioSource.PlayOneShot(_basicSound);
         _playerAnimator.SetTrigger("Shoot");
+        _muzzleFlash.Play();
 
         GameObject bullet = Instantiate(_bullet, _shootFrom.transform.position, _shootFrom.transform.rotation);
         bullet.GetComponent<Bullet>().SetDamage(_basicDamage);
@@ -245,12 +279,14 @@ public class Player : MonoBehaviour
         bullet5.GetComponent<Bullet>().SetDamage(_shotgunDamage);
         
         _playerAudioSource.PlayOneShot(_shotgunSound);
+        _muzzleFlash.Play();
     }
 
     private void GrenadeAttack()
     {
         _playerAudioSource.PlayOneShot(_grenadeSound);
         _playerAnimator.SetTrigger("Shoot");
+        _muzzleFlash.Play();
 
         GameObject grenade =
             Instantiate(_grenade, _shootFrom.transform.position, _shootFrom.transform.rotation);
@@ -259,18 +295,18 @@ public class Player : MonoBehaviour
         grenade.GetComponent<Grenade>().SetDamage(_grenadeDamage);
     }
 
-    private void BaseballAttack()
-    {
-        _playerAudioSource.PlayOneShot(_baseballSound);
-
-        _playerAnimator.ResetTrigger("onSwing");
-        _playerAnimator.SetTrigger("onSwing");
-        
-        GameObject bullet = Instantiate(_baseballArea, _shootFrom.transform.position, _shootFrom.transform.rotation);
-        bullet.GetComponent<Bullet>().SetDamage(_baseballDamage);
-        bullet.GetComponent<Bullet>().SetDestroyAfter(0.2f);
-
-    }
+    // private void BaseballAttack()
+    // {
+    //     _playerAudioSource.PlayOneShot(_baseballSound);
+    //
+    //     _playerAnimator.ResetTrigger("onSwing");
+    //     _playerAnimator.SetTrigger("onSwing");
+    //     
+    //     GameObject bullet = Instantiate(_baseballArea, _shootFrom.transform.position, _shootFrom.transform.rotation);
+    //     bullet.GetComponent<Bullet>().SetDamage(_baseballDamage);
+    //     bullet.GetComponent<Bullet>().SetDestroyAfter(0.2f);
+    //
+    // }
 
     // used in the walk animation as event
     public void FootstepsAudio()
