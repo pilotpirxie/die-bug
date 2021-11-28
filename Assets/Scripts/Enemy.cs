@@ -66,7 +66,7 @@ public class Enemy : MonoBehaviour
         }
 
         SelectPlayerTarget();
-
+        if (_playerTarget == null) return;
         Vector3 targetPosition = _playerTarget.transform.position + _positionNoise;
 
         if (_type == EnemyType.Crawling || _type == EnemyType.Shooting)
@@ -112,7 +112,10 @@ public class Enemy : MonoBehaviour
     {
         if (_playerTarget != null) return;
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-        _playerTarget = players[Random.Range(0, players.Length)];
+        if (players.Length > 0)
+        {
+            _playerTarget = players[Random.Range(0, players.Length)];
+        }
     }
 
 
@@ -133,6 +136,7 @@ public class Enemy : MonoBehaviour
 
     private void Shoot()
     {
+        if (_playerTarget == null) return;
         float distance = Vector3.Distance(transform.position, _playerTarget.transform.position);
         if (!(distance < _maxShootingDistanceFromPlayer)) return;
 
