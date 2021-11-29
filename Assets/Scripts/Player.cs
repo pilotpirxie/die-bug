@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
     [SerializeField] private KeyCode _left;
     [SerializeField] private KeyCode _right;
     [SerializeField] private KeyCode _attack;
+    [SerializeField] private KeyCode _map;
 
     [Header("Player Stats")] 
     [SerializeField] private int _maxHp = 1000;
@@ -58,6 +59,7 @@ public class Player : MonoBehaviour
     [SerializeField] private AudioSource _playerAudioSource;
     [SerializeField] private AudioSource _footstepsAudioSource;
     [SerializeField] private Slider _hpSlider;
+    [SerializeField] private GameObject _minimap;
     
     [Header("Materials")] 
     [SerializeField] private Renderer _renderer;
@@ -116,7 +118,11 @@ public class Player : MonoBehaviour
                 //     BaseballAttack();
                 //     break;
             }
+        if (Input.GetKeyDown(_map))
+            _minimap.SetActive(true);
 
+        if (Input.GetKeyUp(_map))
+            _minimap.SetActive(false);
         DisplayCorrectWeapon();
     }
 
