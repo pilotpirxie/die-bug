@@ -535,6 +535,7 @@ MonoBehaviour:
   _deathParticle: {fileID: 7948607977418637764, guid: 53fe64cf2f0b99c4cbec4bad2dfddbd1, type: 3}
   _cameraController: {fileID: 0}
   _deathSound: {fileID: 8300000, guid: 2d255f7b6b5681e4c87a401274275ca0, type: 3}
+  _hitSound: {fileID: 8300000, guid: ef44619f332cb8a45a3abbc6ecce75f7, type: 3}
   _boxCollider: {fileID: 2708858059032410952}
   _rigidbody: {fileID: 2708858059032410997}
   _audioSource: {fileID: 1325276777589560387}

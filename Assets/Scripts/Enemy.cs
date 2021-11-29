@@ -36,6 +36,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private GameObject _deathParticle;
     [SerializeField] private CameraController _cameraController;
     [SerializeField] private AudioClip _deathSound;
+    [SerializeField] private AudioClip _hitSound;
 
     [Header("Controllers")]
     [SerializeField] private BoxCollider _boxCollider;
@@ -100,7 +101,9 @@ public class Enemy : MonoBehaviour
     public void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("PlayerBullet"))
-        {
+        {  
+            _audioSource.pitch = Random.Range(.8f, 1.2f);
+            _audioSource.PlayOneShot(_hitSound);
             Bullet bullet = other.gameObject.GetComponent<Bullet>();
             _cameraController.Shake(-1f, 1f);
 
@@ -163,7 +166,7 @@ public class Enemy : MonoBehaviour
 
     private void EnemyDie()
     {
-        Destroy(gameObject, 3f);
+        Destroy(gameObject, 1.5f);
         
         Instantiate(_deathParticle, transform.position, transform.rotation);
         

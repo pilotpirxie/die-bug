@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Runtime.Remoting.Messaging;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,6 +24,7 @@ public class Player : MonoBehaviour
     [SerializeField] private KeyCode _right;
     [SerializeField] private KeyCode _attack;
     [SerializeField] private KeyCode _map;
+    [SerializeField] private KeyCode _dash;
 
     [Header("Player Stats")] 
     [SerializeField] private int _maxHp = 1000;
@@ -60,6 +63,7 @@ public class Player : MonoBehaviour
     [SerializeField] private AudioSource _footstepsAudioSource;
     [SerializeField] private Slider _hpSlider;
     [SerializeField] private GameObject _minimap;
+    [SerializeField] private Rigidbody _rigidbody;
     
     [Header("Materials")] 
     [SerializeField] private Renderer _renderer;
@@ -67,6 +71,16 @@ public class Player : MonoBehaviour
     [SerializeField] private Material _damagedMaterial;
     [SerializeField] private Material _healingMaterial;
     [SerializeField] private float _duration;
+    
+    [Header("DashSettings")]
+    [SerializeField] private float _dashForce;
+    [SerializeField] private GameObject _dashParticle;
+    [SerializeField] private float _dashCooldown = 10f;
+    [SerializeField] private Image _dashImage;
+    [SerializeField] private AudioClip _dashSound;
+    [SerializeField] private AudioSource _dashAudioSource;
+    private bool _dashReady = true;
+    private float _currentCooldown;
 
     private bool damaged = false;
     private bool healed = false;
@@ -123,9 +137,43 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyUp(_map))
             _minimap.SetActive(false);
+        
+        if (Input.GetKeyUp(_dash) && _dashReady)
+            PlayerDash();
+
+        if (!_dashReady)
+            StartCoroutine(DashOnCooldown());
+        
+        if (_currentCooldown >= _dashCooldown)
+        {
+            StopCoroutine(DashOnCooldown());
+            _currentCooldown = 0f;
+        }
+        
         DisplayCorrectWeapon();
     }
 
+    private void PlayerDash()
+    {
+        GameObject particles = Instantiate(_dashParticle, gameObject.transform.position, gameObject.transform.rotation);
+
+        //StartCoroutine("DashOnCooldown");
+        _dashAudioSource.PlayOneShot(_dashSound);
+        _rigidbody.AddRelativeForce(0f, 0f, _dashForce, ForceMode.Impulse);
+        _dashReady = false;
+    }
+
+    private IEnumerator DashOnCooldown()
+    {
+        _currentCooldown += .01f;
+        _dashImage.fillAmount = ((_currentCooldown / _dashCooldown) * 100) / 100;
+        if (_currentCooldown >= _dashCooldown)
+        {
+            _dashReady = true;
+        }
+        Debug.Log(_currentCooldown);
+        yield return new WaitForSeconds(.2f);
+    }
     private void PlayerDamaged()
     {
         if (damaged)
