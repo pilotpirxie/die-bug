@@ -17,11 +17,25 @@ public class GameplayController : MonoBehaviour
     [SerializeField] private GameObject _ladybug;
     [SerializeField] private GameObject _scorpio;
     [SerializeField] private GameObject _spider;
-    
+
+    [SerializeField] private GameObject _secondPlayer;
+    [SerializeField] private GameObject _secondPlayerUI;
+
+    private bool _playerAdded;
     private void Start()
     {
         _waves = GetComponents<Wave>().ToList();
         InvokeRepeating("CheckEnemiesOnMap", 5, 1);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.Return) && !_playerAdded)
+        {
+            _secondPlayer.SetActive(true);
+            _secondPlayerUI.SetActive(true);
+            _playerAdded = true;
+        }
     }
 
     private void CheckEnemiesOnMap()
