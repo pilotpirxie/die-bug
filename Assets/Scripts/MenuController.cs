@@ -29,6 +29,6 @@ public class MenuController : MonoBehaviour
     public void PlayGame()
     {        
         // _audioSource.PlayOneShot(_menuSelectSfx);
-        SceneManager.LoadScene("Scenes/New Level1");
+        SceneManager.LoadScene("Scenes/Level1");
     }
 }

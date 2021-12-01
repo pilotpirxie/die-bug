@@ -1,5 +1,6 @@
 using System.Collections;
-using System.Runtime.Remoting.Messaging;
+using TMPro;
+//using System.Runtime.Remoting.Messaging;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -28,22 +29,27 @@ public class Player : MonoBehaviour
 
     [Header("Player Stats")] 
     [SerializeField] private int _maxHp = 1000;
-    [SerializeField] private int _currentHp;
+    public int _currentHp;
 
     [Header("Weapons")] 
     [SerializeField] private Weapon _selectedWeapon = Weapon.Basic;
     
     [SerializeField] private GameObject _basicWeapon;
     [SerializeField] private GameObject _basicIcon;
+    [SerializeField] private float _basicAmmo;
     [SerializeField] private GameObject _shotgunWeapon;
     [SerializeField] private GameObject _shotgunIcon;
+    [SerializeField] private float _shotgunAmmo;
     [SerializeField] private GameObject _grenadeWeapon;
     [SerializeField] private GameObject _grenadeIcon;
+    [SerializeField] private float _grenadeAmmo;
     //[SerializeField] private GameObject _baseballWeapon;
     [SerializeField] private GameObject _bullet;
     [SerializeField] private GameObject _grenade;
     [SerializeField] private GameObject _baseballArea;
     [SerializeField] private GameObject _shootFrom;
+    [SerializeField] private float _currentAmmo;
+    [SerializeField] private TextMeshProUGUI _ammoUI;
     
     [SerializeField] private int _basicDamage = 50;
     [SerializeField] private int _shotgunDamage = 150;
@@ -53,6 +59,8 @@ public class Player : MonoBehaviour
     [SerializeField] private AudioClip _basicSound;
     [SerializeField] private AudioClip _shotgunSound;
     [SerializeField] private AudioClip _grenadeSound;
+    [SerializeField] private AudioClip _emptyMagSound;
+    [SerializeField] private AudioClip _deathSound;
     //[SerializeField] private AudioClip _baseballSound;
     [SerializeField] private AudioClip[] _footstepsSounds;
 
@@ -61,6 +69,7 @@ public class Player : MonoBehaviour
     [SerializeField] private Animator _playerAnimator;
     [SerializeField] private AudioSource _playerAudioSource;
     [SerializeField] private AudioSource _footstepsAudioSource;
+    [SerializeField] private AudioSource _deathAudioSource;
     [SerializeField] private Slider _hpSlider;
     [SerializeField] private GameObject _minimap;
     [SerializeField] private Rigidbody _rigidbody;
@@ -71,6 +80,8 @@ public class Player : MonoBehaviour
     [SerializeField] private Material _damagedMaterial;
     [SerializeField] private Material _healingMaterial;
     [SerializeField] private float _duration;
+    [SerializeField] private GameplayController _gameplayController;
+    
     
     [Header("DashSettings")]
     [SerializeField] private float _dashForce;
@@ -79,9 +90,14 @@ public class Player : MonoBehaviour
     [SerializeField] private Image _dashImage;
     [SerializeField] private AudioClip _dashSound;
     [SerializeField] private AudioSource _dashAudioSource;
+
+    private bool _isDead = false;
+        
     private bool _dashReady = true;
     private float _currentCooldown;
 
+    
+    
     private bool damaged = false;
     private bool healed = false;
     private string _currentWeapon;
@@ -91,6 +107,7 @@ public class Player : MonoBehaviour
     {
         _currentHp = _maxHp;
         SetHealth(_currentHp);
+        DisplayCorrectWeapon();
         
         _cameraController = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>();
     }
@@ -102,11 +119,13 @@ public class Player : MonoBehaviour
         
         Vector3 inputs = Vector3.zero;
 
-        if (Input.GetKey(_up)) inputs.z = 1;
-        if (Input.GetKey(_down)) inputs.z = -1;
-        if (Input.GetKey(_right)) inputs.x = 1;
-        if (Input.GetKey(_left)) inputs.x = -1;
-
+        if(!_isDead)
+        {
+            if (Input.GetKey(_up)) inputs.z = 1;
+            if (Input.GetKey(_down)) inputs.z = -1;
+            if (Input.GetKey(_right)) inputs.x = 1;
+            if (Input.GetKey(_left)) inputs.x = -1;
+        }
         inputs = Vector3.ClampMagnitude(inputs, 1f);
         _playerAnimator.SetBool("isMoving", false);
         if (inputs.magnitude != 0)
@@ -116,7 +135,7 @@ public class Player : MonoBehaviour
             _playerAnimator.SetBool("isMoving", true);
         }
 
-        if (Input.GetKeyDown(_attack))
+        if (Input.GetKeyDown(_attack) && !_isDead)
             switch (_selectedWeapon)
             {
                 case Weapon.Basic:
@@ -149,8 +168,6 @@ public class Player : MonoBehaviour
             StopCoroutine(DashOnCooldown());
             _currentCooldown = 0f;
         }
-        
-        DisplayCorrectWeapon();
     }
 
     private void PlayerDash()
@@ -171,7 +188,6 @@ public class Player : MonoBehaviour
         {
             _dashReady = true;
         }
-        Debug.Log(_currentCooldown);
         yield return new WaitForSeconds(.2f);
     }
     private void PlayerDamaged()
@@ -208,22 +224,29 @@ public class Player : MonoBehaviour
 
     public void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.CompareTag("Enemy") && !_isDead)
         {
             _cameraController.Shake(-1f, 1f);
             Enemy enemy = other.gameObject.GetComponent<Enemy>();
             _currentHp -= enemy.GetDamage();
             SetHealth(_currentHp);
             enemy.CollideWithPlayer();
+            
+            _deathAudioSource.pitch = Random.Range(.7f, 1f);
+            _deathAudioSource.PlayOneShot(_deathSound);
 
+            _gameplayController.playerScore -= enemy.GetDamage();
+            
             damaged = true;
         }
 
-        if (other.gameObject.CompareTag("Present"))
+        if (other.gameObject.CompareTag("Present") && !_isDead)
         {
             Present present = other.gameObject.GetComponent<Present>();
 
             _selectedWeapon = present.PresentWeapon;
+
+            DisplayCorrectWeapon();
             
             Destroy(other.gameObject);
         }
@@ -231,18 +254,23 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("EnemyBullet"))
+        if (other.gameObject.CompareTag("EnemyBullet") && !_isDead)
         {
             _cameraController.Shake(-1f, 1f);
             Bullet bullet = other.gameObject.GetComponent<Bullet>();
             _currentHp -= bullet.GetDamage();
             SetHealth(_currentHp);
             bullet.DestroyBullet();
+
+            _gameplayController.playerScore -= bullet.GetDamage();
+
+            _deathAudioSource.pitch = Random.Range(.7f, 1f);
+            _deathAudioSource.PlayOneShot(_deathSound);
             
             damaged = true;
         }
 
-        if (other.gameObject.CompareTag("Healing"))
+        if (other.gameObject.CompareTag("Healing") && !_isDead)
         {
             _currentHp = _maxHp;
             Destroy(other.gameObject);
@@ -255,11 +283,16 @@ public class Player : MonoBehaviour
     public void SetHealth(int health)
     {
         _hpSlider.value = health;
+        
+        if(_currentHp <= 0)
+        {
+            _playerAudioSource.PlayOneShot(_deathSound);
+            _isDead = true;
+            _gameplayController.DeathPause(_isDead);
+        }
     }
     private void DisplayCorrectWeapon()
     {
-        if (_selectedWeapon.ToString() != _currentWeapon)
-        {
             _basicWeapon.SetActive(false);
             _shotgunWeapon.SetActive(false);
             _grenadeWeapon.SetActive(false);
@@ -276,16 +309,22 @@ public class Player : MonoBehaviour
             {
                 case Weapon.Basic:
                     _basicWeapon.SetActive(true);
+                    _currentAmmo = _basicAmmo;
+                    _ammoUI.SetText(_currentAmmo.ToString());
                     _muzzleFlash = _basicWeapon.GetComponentsInChildren<ParticleSystem>()[0];
                     _basicIcon.SetActive(true);
                     break;
                 case Weapon.Shotgun:
                     _shotgunWeapon.SetActive(true);
+                    _currentAmmo = _shotgunAmmo;
+                    _ammoUI.SetText(_currentAmmo.ToString());
                     _muzzleFlash = _shotgunWeapon.GetComponentsInChildren<ParticleSystem>()[0];
                     _shotgunIcon.SetActive(true);
                     break;
                 case Weapon.Grenade:
                     _grenadeWeapon.SetActive(true);
+                    _currentAmmo = _grenadeAmmo;
+                    _ammoUI.SetText(_currentAmmo.ToString());
                     _muzzleFlash = _grenadeWeapon.GetComponentsInChildren<ParticleSystem>()[0];
                     _grenadeIcon.SetActive(true);
                     break;
@@ -293,60 +332,83 @@ public class Player : MonoBehaviour
                 //     //_baseballWeapon.SetActive(true);
                 //     break;
             }
-        }
     }
 
     private void BasicAttack()
     {
-        _playerAudioSource.PlayOneShot(_basicSound);
-        _playerAnimator.SetTrigger("Shoot");
-        _muzzleFlash.Play();
+        if(_currentAmmo > 0)
+        {
+            _currentAmmo--;
+            _ammoUI.SetText(_currentAmmo.ToString());
 
-        GameObject bullet = Instantiate(_bullet, _shootFrom.transform.position, _shootFrom.transform.rotation);
-        bullet.GetComponent<Bullet>().SetDamage(_basicDamage);
+            _playerAudioSource.PlayOneShot(_basicSound);
+            _playerAnimator.SetTrigger("Shoot");
+            _muzzleFlash.Play();
+
+            GameObject bullet = Instantiate(_bullet, _shootFrom.transform.position, _shootFrom.transform.rotation);
+            bullet.GetComponent<Bullet>().SetDamage(_basicDamage);
+        }
+        else
+            _playerAudioSource.PlayOneShot(_emptyMagSound);
     }
 
     private void SingleShotgunShoot()
     {
-        Quaternion weaponRotation = _shootFrom.transform.rotation;
-        Vector3 weaponPosition = _shootFrom.transform.position;
-        _playerAnimator.SetTrigger("Shoot");
+        if(_currentAmmo > 0)
+        {
+            _currentAmmo--;
+            _ammoUI.SetText(_currentAmmo.ToString());
+            
+            Quaternion weaponRotation = _shootFrom.transform.rotation;
+            Vector3 weaponPosition = _shootFrom.transform.position;
+            _playerAnimator.SetTrigger("Shoot");
 
-        weaponRotation.eulerAngles += new Vector3(0, -20f + Random.Range(-5, 5), 0);
-        GameObject bullet1 = Instantiate(_bullet, weaponPosition, weaponRotation);
-        bullet1.GetComponent<Bullet>().SetDamage(_shotgunDamage);
+            weaponRotation.eulerAngles += new Vector3(0, -20f + Random.Range(-5, 5), 0);
+            GameObject bullet1 = Instantiate(_bullet, weaponPosition, weaponRotation);
+            bullet1.GetComponent<Bullet>().SetDamage(_shotgunDamage);
 
-        weaponRotation.eulerAngles += new Vector3(0, 10 + Random.Range(-5, 5), 0);
-        GameObject bullet2 = Instantiate(_bullet, weaponPosition, weaponRotation);
-        bullet2.GetComponent<Bullet>().SetDamage(_shotgunDamage);
+            weaponRotation.eulerAngles += new Vector3(0, 10 + Random.Range(-5, 5), 0);
+            GameObject bullet2 = Instantiate(_bullet, weaponPosition, weaponRotation);
+            bullet2.GetComponent<Bullet>().SetDamage(_shotgunDamage);
 
-        weaponRotation.eulerAngles += new Vector3(0, 10 + Random.Range(-5, 5), 0);
-        GameObject bullet3 = Instantiate(_bullet, weaponPosition, weaponRotation);
-        bullet3.GetComponent<Bullet>().SetDamage(_shotgunDamage);
+            weaponRotation.eulerAngles += new Vector3(0, 10 + Random.Range(-5, 5), 0);
+            GameObject bullet3 = Instantiate(_bullet, weaponPosition, weaponRotation);
+            bullet3.GetComponent<Bullet>().SetDamage(_shotgunDamage);
 
-        weaponRotation.eulerAngles += new Vector3(0, 10 + Random.Range(-5, 5), 0);
-        GameObject bullet4 = Instantiate(_bullet, weaponPosition, weaponRotation);
-        bullet4.GetComponent<Bullet>().SetDamage(_shotgunDamage);
+            weaponRotation.eulerAngles += new Vector3(0, 10 + Random.Range(-5, 5), 0);
+            GameObject bullet4 = Instantiate(_bullet, weaponPosition, weaponRotation);
+            bullet4.GetComponent<Bullet>().SetDamage(_shotgunDamage);
 
-        weaponRotation.eulerAngles += new Vector3(0, 10 + Random.Range(-5, 5), 0);
-        GameObject bullet5 = Instantiate(_bullet, weaponPosition, weaponRotation);
-        bullet5.GetComponent<Bullet>().SetDamage(_shotgunDamage);
-        
-        _playerAudioSource.PlayOneShot(_shotgunSound);
-        _muzzleFlash.Play();
+            weaponRotation.eulerAngles += new Vector3(0, 10 + Random.Range(-5, 5), 0);
+            GameObject bullet5 = Instantiate(_bullet, weaponPosition, weaponRotation);
+            bullet5.GetComponent<Bullet>().SetDamage(_shotgunDamage);
+            
+            _playerAudioSource.PlayOneShot(_shotgunSound);
+            _muzzleFlash.Play();
+        }
+        else
+            _playerAudioSource.PlayOneShot(_emptyMagSound);
     }
 
     private void GrenadeAttack()
     {
-        _playerAudioSource.PlayOneShot(_grenadeSound);
-        _playerAnimator.SetTrigger("Shoot");
-        _muzzleFlash.Play();
+        if(_currentAmmo > 0)
+        {
+            _currentAmmo--;
+            _ammoUI.SetText(_currentAmmo.ToString());
+            
+            _playerAudioSource.PlayOneShot(_grenadeSound);
+            _playerAnimator.SetTrigger("Shoot");
+            _muzzleFlash.Play();
 
-        GameObject grenade =
-            Instantiate(_grenade, _shootFrom.transform.position, _shootFrom.transform.rotation);
-        grenade.GetComponent<Rigidbody>().AddForce(grenade.transform.forward * 7f, ForceMode.Impulse);
-        grenade.GetComponent<Rigidbody>().AddForce(grenade.transform.up * 10f, ForceMode.Impulse);
-        grenade.GetComponent<Grenade>().SetDamage(_grenadeDamage);
+            GameObject grenade =
+                Instantiate(_grenade, _shootFrom.transform.position, _shootFrom.transform.rotation);
+            grenade.GetComponent<Rigidbody>().AddForce(grenade.transform.forward * 7f, ForceMode.Impulse);
+            grenade.GetComponent<Rigidbody>().AddForce(grenade.transform.up * 10f, ForceMode.Impulse);
+            grenade.GetComponent<Grenade>().SetDamage(_grenadeDamage);
+        }
+        else
+            _playerAudioSource.PlayOneShot(_emptyMagSound);
     }
 
     // private void BaseballAttack()

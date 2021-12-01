@@ -12,6 +12,7 @@ TagManager:
   - DestroyZone
   - Present
   - Healing
+  - Gameplay
   layers:
   - Default
   - TransparentFX

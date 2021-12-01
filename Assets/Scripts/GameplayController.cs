@@ -2,8 +2,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 using Random = UnityEngine.Random;
+using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 public class GameplayController : MonoBehaviour
 {
@@ -18,26 +21,72 @@ public class GameplayController : MonoBehaviour
     [SerializeField] private GameObject _scorpio;
     [SerializeField] private GameObject _spider;
 
+    //[SerializeField] private Wave _finalWave;
+
     [SerializeField] private GameObject _secondPlayer;
     [SerializeField] private GameObject _secondPlayerUI;
+
+    [SerializeField] private AudioMixerSnapshot _paused;
+    [SerializeField] private AudioMixerSnapshot _unPaused;
+    
+    [SerializeField] private GameObject _deathPanel;
+    
+    [SerializeField] private TextMeshProUGUI _scoreValue;
+    [SerializeField] private TextMeshProUGUI _scoreValueFinal;
+    [SerializeField] private TextMeshProUGUI _congratulationsText;
+
+    [HideInInspector]
+    public float playerScore;
+    [HideInInspector]
+    //public bool _deathPause = false;
 
     private bool _playerAdded;
     private void Start()
     {
+        _unPaused.TransitionTo(.1f);
+
+        Time.timeScale = 1;
         _waves = GetComponents<Wave>().ToList();
         InvokeRepeating("CheckEnemiesOnMap", 5, 1);
     }
 
     private void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Return) && !_playerAdded)
-        {
-            _secondPlayer.SetActive(true);
-            _secondPlayerUI.SetActive(true);
-            _playerAdded = true;
-        }
+        if (playerScore < 0)
+            playerScore = 0;
+        
+        _scoreValue.SetText(playerScore.ToString());
+        // if (Input.GetKeyUp(KeyCode.Return) && !_playerAdded)
+        // {
+        //     _secondPlayer.SetActive(true);
+        //     _secondPlayerUI.SetActive(true);
+        //     _playerAdded = true;
+        // }
     }
 
+    public void DeathPause(bool _deathPause)
+    {
+        if (_deathPause)
+        {
+            _paused.TransitionTo(.2f);
+            _deathPanel.SetActive(true);
+            _scoreValue.gameObject.SetActive(false);
+            _scoreValueFinal.SetText(playerScore.ToString());
+            Time.timeScale = 0.5f;
+        }
+        else if (!_deathPause)
+        {
+            _unPaused.TransitionTo(.2f);
+            _deathPanel.SetActive(false);
+            _scoreValue.SetText(playerScore.ToString());
+            Time.timeScale = 1;
+        }
+    }
+    public void RestartGame()
+    {
+        Scene scene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(scene.name);
+    }
     private void CheckEnemiesOnMap()
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
@@ -51,18 +100,26 @@ public class GameplayController : MonoBehaviour
 
     private void NextWave()
     {
-        _currentWaveIndex++;
 
-        if (_currentWaveIndex >= _waves.Count) return; 
-        
-        Wave wave = _waves[_currentWaveIndex - 1];
-        
-        SpawnEnemies(wave.Ants, _ant);
-        SpawnEnemies(wave.Bees, _bee);
-        SpawnEnemies(wave.Cockroaches, _cockroach);
-        SpawnEnemies(wave.Ladybugs, _ladybug);
-        SpawnEnemies(wave.Scorpios, _scorpio);
-        SpawnEnemies(wave.Spiders, _spider);
+        if (_currentWaveIndex >= _waves.Count)
+        {
+            DeathPause(true);
+            _congratulationsText.SetText("CONGRATULATIONS!");
+            _scoreValue.SetText(playerScore.ToString());
+        }
+        else
+        {
+            _currentWaveIndex++;
+            
+            Wave wave = _waves[_currentWaveIndex - 1];
+
+            SpawnEnemies(wave.Ants, _ant);
+            SpawnEnemies(wave.Bees, _bee);
+            SpawnEnemies(wave.Cockroaches, _cockroach);
+            SpawnEnemies(wave.Ladybugs, _ladybug);
+            SpawnEnemies(wave.Scorpios, _scorpio);
+            SpawnEnemies(wave.Spiders, _spider);
+        }
     }
 
     private void SpawnEnemies(int numberOfEnemies, GameObject enemyObj)
