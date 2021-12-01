@@ -98,10 +98,13 @@ MonoBehaviour:
   _cameraController: {fileID: 0}
   _deathSound: {fileID: 8300000, guid: 89a76453a7e5d294cb06957dd91e294e, type: 3}
   _hitSound: {fileID: 8300000, guid: ef44619f332cb8a45a3abbc6ecce75f7, type: 3}
+  _laserSound: {fileID: 8300000, guid: 894d7bb5471690546a103c1161119d3b, type: 3}
+  _scoreWorth: 300
   _boxCollider: {fileID: 166902674432041746}
   _rigidbody: {fileID: 4994585082091207162}
   _audioSource: {fileID: 3403868805355640805}
   _animatorController: {fileID: 2490615710739831411}
+  _gameplayController: {fileID: 0}
 --- !u!82 &3403868805355640805
 AudioSource:
   m_ObjectHideFlags: 0

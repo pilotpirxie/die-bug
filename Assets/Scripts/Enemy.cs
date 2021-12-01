@@ -37,17 +37,22 @@ public class Enemy : MonoBehaviour
     [SerializeField] private CameraController _cameraController;
     [SerializeField] private AudioClip _deathSound;
     [SerializeField] private AudioClip _hitSound;
+    [SerializeField] private AudioClip _laserSound;
+
+    [SerializeField] private float _scoreWorth;
 
     [Header("Controllers")]
     [SerializeField] private BoxCollider _boxCollider;
     [SerializeField] private Rigidbody _rigidbody;
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private Animator _animatorController;
+    [SerializeField] private GameplayController _gameplayController;
     
     private bool _isDead = false;
     private void Start()
     {
         _cameraController = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>();
+        _gameplayController = GameObject.FindGameObjectWithTag("Gameplay").GetComponent<GameplayController>();
 
         if (_type == EnemyType.Crawling) InvokeRepeating("Noise", 1f, 1f / 2);
 
@@ -160,12 +165,17 @@ public class Enemy : MonoBehaviour
 
             GameObject bullet = Instantiate(_bullet, transform.position, transform.rotation);
             bullet.GetComponent<Bullet>().SetDamage(_damage);
+            _audioSource.pitch = Random.Range(.9f, 1.33f);
+            _audioSource.PlayOneShot(_laserSound);
         }
     }
 
 
     private void EnemyDie()
     {
+        _gameplayController.playerScore +=
+            _scoreWorth;
+        
         Destroy(gameObject, 1.5f);
         
         Instantiate(_deathParticle, transform.position, transform.rotation);

@@ -10,9 +10,12 @@ public class SantaClaus : MonoBehaviour
     [SerializeField] private List<GameObject> _presents;
     [SerializeField] private GameObject _healObject;
 
+    [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private AudioClip _santaSound;
+
     void Start()
     {
-        Invoke("SpawnPresents", Random.Range(5, 15));
+        Invoke("SpawnPresents", Random.Range(7.5f, 15));
         
         Invoke("DestroySantaClaus", 25f);
     }
@@ -24,6 +27,8 @@ public class SantaClaus : MonoBehaviour
 
     void SpawnPresents()
     {
+        _audioSource.PlayOneShot(_santaSound);
+        
         Instantiate(_presents[Random.Range(0, _presents.Count)], transform.position, transform.rotation);
         Instantiate(_presents[Random.Range(0, _presents.Count)], transform.position, transform.rotation);
         Instantiate(_healObject, transform.position, transform.rotation);
