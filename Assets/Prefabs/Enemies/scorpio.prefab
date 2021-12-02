@@ -82,13 +82,13 @@ MonoBehaviour:
   _rotateSpeed: 1
   _positionNoise: {x: 0, y: 0, z: 0}
   _maxNoise: 2
-  _type: 1
-  _damage: 20
+  _type: 0
+  _damage: 200
   _destroyOnCollision: 0
   _isSpawner: 1
   _enemySpawn: {fileID: 7816047090236671076, guid: 4630bc0fbab67a046b483e540a9cc90c, type: 3}
-  _shootInterval: 0.1
-  _shootNoiseInterval: 0.15
+  _shootInterval: 0.33
+  _shootNoiseInterval: 0.25
   _minWalkDistanceFromPlayer: 10
   _maxShootingDistanceFromPlayer: 200
   _bullet: {fileID: 204488008220680244, guid: 9ef34ac7f13b7e0498fda966fdb077d2, type: 3}
